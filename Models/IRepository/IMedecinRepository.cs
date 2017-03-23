@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace APIGSB.Models.IRepository
@@ -8,6 +9,10 @@ namespace APIGSB.Models.IRepository
 	/// </summary>
 	public interface IMedecinRepository
 	{
-		IEnumerable  
+		/// <summary>
+		/// Gets all.
+		/// </summary>
+		/// <returns>The all.</returns>
+		ICollection GetAll();
 	}
 }

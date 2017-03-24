@@ -7,7 +7,6 @@ using APIGSB.Models;
 using APIGSB.Models.Repository;
 using APIGSB.Models.IRepository;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json;
 
@@ -23,7 +22,7 @@ namespace APIGSB
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
-        }
+	    }
 
         public IConfigurationRoot Configuration { get; }
 
@@ -31,7 +30,7 @@ namespace APIGSB
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var connection = @"Server=tcp:gsbdatabaseserver.database.windows.net,1433;Initial Catalog=GSBMOBILEAPIDB;Persist Security Info=False;User ID=rnrsolutions;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+			var connection = $@"Server=tcp:{ApiConfiguration.BDD_HOST},1433;Initial Catalog={ApiConfiguration.BDD_NAME};Persist Security Info=False;User ID={ApiConfiguration.BDD_USER};Password={ApiConfiguration.BDD_PASSWORD};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
             
             services.AddDbContext<ApigsbDbContext>(options => options.UseSqlServer(connection));

@@ -43,8 +43,16 @@ namespace APIGSB
 				options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 			});
 
+			// Définition des singleton de l'API pour retrouver ensuite les Repository de certain model dans les
+			// controller en passant l'injection de dépendances
             services.AddSingleton<IFamilleRepository, FamilleRepository>();
             services.AddSingleton<IMedicamentRepository, MedicamentRepository>();
+			services.AddSingleton<IMedecinRepository, MedecinRepository>();
+			services.AddSingleton<IPathologieRepository, PathologieRepository>();
+			services.AddSingleton<IExciptientRepository, ExciptientRepository>();
+			services.AddSingleton<IMedicamentExciptientRepository, MedicamentExciptientRepository>();
+			services.AddSingleton<IMedicamentPathologieRepository, MedicamentPathologieRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

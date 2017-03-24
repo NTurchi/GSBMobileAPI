@@ -59,6 +59,18 @@ namespace APIGSB.Models
 		public DbSet<Pathologie> Pathologie { get; set; }
 
 		/// <summary>
+		/// Initialisation de la table <see cref="MedicamentPathologie"/>
+		/// </summary>
+		/// <value>MedicamentPathologie</value>
+		public DbSet<MedicamentPathologie> MedicamentPathologie { get; set; }
+
+		/// <summary>
+		/// Initialisation de la table <see cref="MedicamentExciptient"/>
+		/// </summary>
+		/// <value>MedicamentExciptient</value>
+		public DbSet<MedicamentExciptient> MedicamentExciptient { get; set; }
+
+		/// <summary>
 		/// Configuration de la connexion à la base de données
 		/// </summary>
 		/// <param name="optionsBuilder">Option de construction de la base de données</param>

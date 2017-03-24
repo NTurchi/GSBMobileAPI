@@ -11,30 +11,29 @@ namespace APIGSB.Models.IRepository
     public interface IMedicamentRepository
     {
 		/// <summary>
-		/// Obtenir toutes les <see cref="Famille"/> présentes dans la base de données
+		/// Obtenir tous les <see cref="Medicament"/> présents dans la base de données
 		/// </summary>
-		/// <returns>Une collection implémentant l'interface IEnumerable de médicaments</returns>
+		/// <returns>Une collection de médicaments implémentant l'interface IEnumerable</returns>
         IEnumerable<Medicament> GetAll();
 
 		/// <summary>
 		/// Cherche un <see cref="Medicament"/>en particulier dans la base de données à partir de son identifiant primaire
 		/// </summary>
 		/// <returns>Le médicament</returns>
-		/// <param name="id">L'identifiant du médicament</param>
+		/// <param name="id">L'identifiant du médicament à trouver</param>
         Medicament Find(int id);
 			
 		/// <summary>
-		/// TODO : Utile ?
+		/// Supprime un <see cref="Medicament"/>
 		/// </summary>
 		/// <returns>The remove.</returns>
-		/// <param name="id">Identifier.</param>
+		/// <param name="id">Identifiant primaire du médicament à supprimer</param>
         void Remove(int id);
 
 		/// <summary>
-		/// TODO: Utile ?
+		/// Mets à jour un <see cref="Medicament"/> 
 		/// </summary>
-		/// <returns>The update.</returns>
-		/// <param name="medicament">Medicament.</param>
+		/// <param name="medicament">Le médicament à mettre à jour</param>
         void Update(Medicament medicament);
     }
 }

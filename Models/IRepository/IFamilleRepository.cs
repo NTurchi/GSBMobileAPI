@@ -20,7 +20,7 @@ namespace APIGSB.Models.IRepository
 		/// <summary>
 		/// Obtenir toutes les <see cref="Famille"/> présentes dans la base de données
 		/// </summary>
-		/// <returns>Une collection implémentant l'interface IEnumerable de médicaments</returns>
+		/// <returns>Une collection de médicaments implémentant l'interface IEnumerable</returns>
 		IEnumerable<Famille> GetAll();
 
 		/// <summary>

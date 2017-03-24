@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APIGSB.Controllers
 {
-
     [Route("api/[controller]")]
     public class MedicamentController : Controller
     {

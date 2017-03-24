@@ -5,7 +5,7 @@ using System.Net.Http;
 namespace APIGSB.Metadata
 {
 	/// <summary>
-	/// Classe composé des méta donnée d'une entité pour l'API
+	/// Classe composé des métadonnées d'une entité pour l'API
 	/// </summary>
 	public class Metadata
 	{
@@ -21,32 +21,36 @@ namespace APIGSB.Metadata
 		public string Method { get; set; }
 
 		/// <summary>
-		/// La route API pour accéder à la fonctionnalité de l'API voulu
+		/// La route API pour accéder à la fonctionnalité de l'API voulue
 		/// </summary>
 		/// <value>The route.</value>
 		public string Route { get; set; }
 
 		/// <summary>
-		/// Initialise de la meta donnée pour une classe donnée
+		/// Initialise de la metadonnée pour une classe donnée
 		/// </summary>
-		public Metadata(string entity, HttpMethod methods, bool haveParam = false)
+		public Metadata(string entity, HttpMethod method, bool haveParam = false)
 		{
 			if (methods == HttpMethod.Post)
 			{
 				this.Name = $"Create{entity}";
 				this.Method = "Post";
 				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
-			} else if (methods == HttpMethod.Get && haveParam) {
+			} else if (method == HttpMethod.Get && haveParam) {
 				this.Name = $"Get{entity}";
 				this.Method = "Get";
 				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}/{{id}}";
-			} else if (methods == HttpMethod.Get) {
+			} else if (method == HttpMethod.Get) {
 				this.Name = $"Get{entity}s";
 				this.Method = "Get";
 				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
-			} else if (methods == HttpMethod.Put) {
+			} else if (method == HttpMethod.Put) {
 				this.Name = $"Update{entity}";
 				this.Method = "Get";
+				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
+			} else if (method == HttpMethod.Delete) {
+				this.Name = $"Remove{entity}";
+				this.Method = "Delete";
 				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
 			}
 		}

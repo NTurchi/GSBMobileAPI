@@ -44,5 +44,12 @@ namespace APIGSB.Models.IRepository
 		/// <returns>Void</returns>
 		/// <param name="famille">L'objet <see cref="Famille"/> à mettre à jour</param>
         void Update(Famille famille);
+
+		/// <summary>
+		/// Retourn une <see cref="Famille"/> à partir de son nom
+		/// </summary>
+		/// <returns>La famille correspondante</returns>
+		/// <param name="nom">Le nom de la famille</param>
+		Famille GetByName(string nom);
     }
 }

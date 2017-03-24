@@ -77,5 +77,14 @@ namespace APIGSB.Models.Repository
             _context.Famille .Update(famille);
             _context.SaveChanges();
         }
+
+		/// <summary>
+		/// Voir <see cref="IFamilleRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
+		public Famille GetByName(string nom)
+		{
+			return _context.Famille.FirstOrDefault(f => f.Nom == nom);
+		}
     }
 }

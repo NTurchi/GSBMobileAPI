@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Net.Http;
 
 namespace APIGSB.Metadata
 {
 	/// <summary>
-	/// Classe qui nous permettra de crée des collections de <see cref="Metadata">méta données</see> selon l'entité choisie.
+	/// Classe qui nous permettra de crée des collections de <see cref="Metadata">métadonnées</see> selon l'entité choisie.
 	/// C'est classe sera définie comme un singleton car elle nécessitera qu'une seul instance
 	/// </summary>
 	public class MetadataFactory
@@ -33,8 +31,8 @@ namespace APIGSB.Metadata
 		/// <summary>
 		/// Retourne une collection de <see cref="Metadata"/> d'une entité donnée
 		/// </summary>
-		/// <returns>Une collection de méta données</returns>
-		/// <typeparam name="T">Le type de l'entité dont l'on veut récupéré les méta données</typeparam>
+		/// <returns>Une collection de métadonnée</returns>
+		/// <typeparam name="T">Le type de l'entité dont l'on veut récupéré les métadonnées</typeparam>
 		public IDictionary<string, List<Metadata>> GetMetadata<T>(params HttpMethod[] methods)
 		{
 			// Récuperation du nom de la classe
@@ -44,11 +42,11 @@ namespace APIGSB.Metadata
 			Dictionary<string, List<Metadata>> entityMetadata = new Dictionary<string, List<Metadata>> ();
 			entityMetadata.Add(className, new List<Metadata>());
 
-			// Nombre de requête HTTP de type GET en paramètre, s'il y'en plus d'une c'est que l'on veut aussi la méta
-			// donnée concernant la récupération d'un seul type d'entité
+			// Nombre de requête HTTP de type GET en paramètre, s'il y'en plus d'une c'est que l'on veut aussi la métadonnée 
+			// concernant la récupération d'un seul type d'entité
 			byte countGet = 0;
 
-			// Pour chaque méthode HTTP précisée, on crée la méta donnée associée
+			// Pour chaque méthode HTTP précisée, on crée la métadonnée associée
 			foreach(HttpMethod method in methods)
 			{
 				if (method == HttpMethod.Get)

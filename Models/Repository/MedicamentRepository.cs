@@ -85,5 +85,14 @@ namespace APIGSB.Models.Repository
             _context.Medicament.Update(medicament);
             _context.SaveChanges();
         }
+
+		/// <summary>
+		/// Voir <see cref="IMedicamentRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
+		public Medicament GetByName(string nom)
+		{
+			return _context.Medicament.FirstOrDefault(m => m.Nom == nom);
+		}
     }
 }

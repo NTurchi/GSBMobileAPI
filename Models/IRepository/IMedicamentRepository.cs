@@ -17,11 +17,17 @@ namespace APIGSB.Models.IRepository
         IEnumerable<Medicament> GetAll();
 
 		/// <summary>
+		/// Fonction d'ajout à la base de donnée d'un objet <see cref="Medicament"/>
+		/// </summary>
+		/// <param name="medicament">Le nouveau médicament à ajouter</param>
+		void Add(Medicament medicament);
+
+		/// <summary>
 		/// Cherche un <see cref="Medicament"/>en particulier dans la base de données à partir de son identifiant primaire
 		/// </summary>
 		/// <returns>Le médicament</returns>
 		/// <param name="id">L'identifiant du médicament à trouver</param>
-        Medicament Find(int id);
+		Medicament Find(int id);
 			
 		/// <summary>
 		/// Supprime un <see cref="Medicament"/>
@@ -35,5 +41,12 @@ namespace APIGSB.Models.IRepository
 		/// </summary>
 		/// <param name="medicament">Le médicament à mettre à jour</param>
         void Update(Medicament medicament);
-    }
+
+		/// <summary>
+		/// Retourn un <see cref="Medicament"/> à partir de son nom
+		/// </summary>
+		/// <returns>Le Medicament correspondant</returns>
+		/// <param name="nom">Le nom du médicament à trouver</param>
+		Medicament GetByName(string nom);
+	}
 }

@@ -28,9 +28,9 @@ namespace APIGSB.Models.Repository
 		}
 
 		/// <summary>
-		/// Voir <see cref="IFamilleRepository"/>
+		/// Voir <see cref="IMedecinRepository"/>
 		/// </summary>
-		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public IEnumerable<Medecin> GetAll()
 		{
 			var a = _context.Medecin.ToList();
@@ -38,9 +38,9 @@ namespace APIGSB.Models.Repository
 		}
 
 		/// <summary>
-		/// Voir <see cref="IFamilleRepository"/>
+		/// Voir <see cref="IMedecinRepository"/>
 		/// </summary>
-		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public void Add(Medecin medecin)
 		{
 			_context.Medecin.Add(medecin);
@@ -48,18 +48,18 @@ namespace APIGSB.Models.Repository
 		}
 
 		/// <summary>
-		/// Voir <see cref="IFamilleRepository"/>
+		/// Voir <see cref="IMedecinRepository"/>
 		/// </summary>
-		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public Medecin Find(int id)
 		{
 			return _context.Medecin.FirstOrDefault(t => t.Id == id);
 		}
 
 		/// <summary>
-		/// Voir <see cref="IFamilleRepository"/>
+		/// Voir <see cref="IMedecinRepository"/>
 		/// </summary>
-		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public void Remove(int id)
 		{
 			var entity = _context.Medecin.First(t => t.Id == id);
@@ -68,13 +68,22 @@ namespace APIGSB.Models.Repository
 		}
 
 		/// <summary>
-		/// Voir <see cref="IFamilleRepository"/>
+		/// Voir <see cref="IMedecinRepository"/>
 		/// </summary>
-		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public void Update(Medecin medecin)
 		{
 			_context.Medecin.Update(medecin);
 			_context.SaveChanges();
+		}
+
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
+		public Medecin GetByName(string nom, string prenom)
+		{
+			return _context.Medecin.FirstOrDefault(m => m.Nom == nom && m.Prenom == prenom);
 		}
 	}
 }

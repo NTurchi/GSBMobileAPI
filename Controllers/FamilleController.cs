@@ -10,7 +10,7 @@ namespace APIGSB.Controllers
 	/// Contrôleur fournissant les données des <see cref="Famille"/>
 	/// </summary>
     [Route("api/[controller]")]
-    public class FamilleController : Controller
+    public class FamilleController : Microsoft.AspNetCore.Mvc.Controller
     {
 		/// <summary>
 		/// Interface du repertoire de requêtes des <see cref="Famille"/>
@@ -19,7 +19,7 @@ namespace APIGSB.Controllers
         public IFamilleRepository _familleRepository { get; set; }
 
 		/// <summary>
-		/// Initalise une nouvelle instance de <see cref="FamilleController"/>
+		/// Initialise une nouvelle instance de <see cref="FamilleController"/>
 		/// </summary>
 		/// <param name="familles">Le repository attaché à l'entité <see cref="Famille"/></param>
         public FamilleController(IFamilleRepository familles)

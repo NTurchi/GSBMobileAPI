@@ -40,5 +40,12 @@ namespace APIGSB.Models.IRepository
 		/// </summary>
 		/// <param name="medecin">Le médecin à mettre à jour</param>
 		void Update(Medecin medecin);
+
+		/// <summary>
+		/// Retourne un <see cref="Medecin"/> à partir de son nom
+		/// </summary>
+		/// <returns>Le médecin correspondant</returns>
+		/// <param name="nom">Le nom et prenom du médecin</param>
+		Medecin GetByName(string nom, string prenom);
 	}
 }

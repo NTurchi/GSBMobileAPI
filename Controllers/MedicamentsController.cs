@@ -10,7 +10,7 @@ namespace APIGSB.Controllers
 	/// Contrôleur fournissant les données des <see cref="Medicament"/>
 	/// </summary>
     [Route("api/[controller]")]
-    public class MedicamentController : Controller
+    public class MedicamentController : Microsoft.AspNetCore.Mvc.Controller
     {
 		/// <summary>
 		/// Interface du repertoire de requêtes des <see cref="Medicament"/>
@@ -19,7 +19,7 @@ namespace APIGSB.Controllers
         public IMedicamentRepository _medicamentRepository { get; set; }
 
 		/// <summary>
-		/// Initalise une nouvelle instance de <see cref="MedicamentController"/>
+		/// Initialise une nouvelle instance de <see cref="MedicamentController"/>
 		/// </summary>
 		/// <param name="medicaments">Le repository attaché à l'entité <see cref="Medicament"/></param>
         public MedicamentController(IMedicamentRepository medicaments)

@@ -9,7 +9,7 @@ namespace APIGSB
 	/// Contrôleur fournissant l'ensemble des <see cref="Metadata">métadonnées</see> de l'API
 	/// </summary>
 	[Route("api/[controller]")]
-	public class MetadataController
+	public class MetadataController : Microsoft.AspNetCore.Mvc.Controller
 	{
 		/// <summary>
 		/// Permet d'obtenir les métadonnées de l'API
@@ -52,6 +52,14 @@ namespace APIGSB
 				                 HttpMethod.Put, 
 				                 HttpMethod.Delete
 			                ));
+
+			metadataList.Add(Metadata
+							 .MetadataFactory
+							 .Instance
+			                 .GetMetadata<Ville>(
+								 HttpMethod.Get,
+								 HttpMethod.Get
+							));
 
 			metadataList.Add(Metadata
 			                 .MetadataFactory

@@ -43,7 +43,7 @@ namespace APIGSB.Models.IRepository
         void Update(Medicament medicament);
 
 		/// <summary>
-		/// Retourn un <see cref="Medicament"/> à partir de son nom
+		/// Retourne un <see cref="Medicament"/> à partir de son nom
 		/// </summary>
 		/// <returns>Le Medicament correspondant</returns>
 		/// <param name="nom">Le nom du médicament à trouver</param>

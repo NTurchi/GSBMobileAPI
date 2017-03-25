@@ -16,7 +16,7 @@ namespace APIGSB
 		/// </summary>
 		/// <returns>Les méta données</returns>
 		[HttpGet]
-		public List<IDictionary<string, List<Metadata.Metadata>>> GetAll()
+		public object GetAll()
         {
 			List<IDictionary<string, List<Metadata.Metadata>>> metadataList = new List<IDictionary<string, List<Metadata.Metadata>>>();
 
@@ -96,9 +96,9 @@ namespace APIGSB
 				                 HttpMethod.Get, 
 				                 HttpMethod.Delete
 			                ));
-			
 
-			return metadataList;
+
+			return new { RouteBase = ApiConfiguration.ROUTE_BASE, Metadata = metadataList};
 		}
 	}
 }

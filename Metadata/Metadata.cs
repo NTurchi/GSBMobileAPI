@@ -31,27 +31,27 @@ namespace APIGSB.Metadata
 		/// </summary>
 		public Metadata(string entity, HttpMethod method, bool haveParam = false)
 		{
-			if (methods == HttpMethod.Post)
+			if (method == HttpMethod.Post)
 			{
 				this.Name = $"Create{entity}";
 				this.Method = "Post";
-				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
+				this.Route = $"{entity.ToLower()}";
 			} else if (method == HttpMethod.Get && haveParam) {
 				this.Name = $"Get{entity}";
 				this.Method = "Get";
-				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}/{{id}}";
+				this.Route = $"{entity.ToLower()}/{{id}}";
 			} else if (method == HttpMethod.Get) {
 				this.Name = $"Get{entity}s";
 				this.Method = "Get";
-				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
+				this.Route = $"{entity.ToLower()}";
 			} else if (method == HttpMethod.Put) {
 				this.Name = $"Update{entity}";
 				this.Method = "Get";
-				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
+				this.Route = $"{entity.ToLower()}";
 			} else if (method == HttpMethod.Delete) {
 				this.Name = $"Remove{entity}";
 				this.Method = "Delete";
-				this.Route = $"{ApiConfiguration.ROUTE_BASE}{entity.ToLower()}";
+				this.Route = $"{entity.ToLower()}";
 			}
 		}
 	}

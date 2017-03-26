@@ -16,7 +16,7 @@ namespace APIGSB.Controllers
 		/// Interface du repertoire de requêtes des <see cref="Medecin"/>
 		/// </summary>
 		/// <value>L'interface du repository des medecins</value>
-		public IMedecinRepository _medecinRepository { get; set; }
+		private IMedecinRepository _medecinRepository;
 
 		/// <summary>
 		/// Initialise une nouvelle instance de <see cref="MedecinController"/>

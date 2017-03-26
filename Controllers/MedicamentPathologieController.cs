@@ -3,14 +3,14 @@ using APIGSB.Models;
 using APIGSB.Models.IRepository;
 using System.Collections.Generic;
 
-namespace APIGSB
+namespace APIGSB.Controllers
 {
 	/// <summary>
 	/// Contrôleur fournissant les données des <see cref="MedicamentPathologie">pathologies 
 	/// d'un médicament</see>.
 	/// </summary>
 	[Route("api/[controller]")]
-	public class MedicamentPathologieController
+	public class MedicamentPathologieController : Controller
 	{
 		/// <summary>
 		/// Interface du repertoire de requêtes des <see cref="MedicamentPathologie">pathologies 
@@ -18,7 +18,7 @@ namespace APIGSB
 		/// </summary>
 		/// <value>L'interface du repository permettant de gérer l'ajout et la suppression d'une pathologie
 		/// pour un médicament donné</value>
-		public IMedicamentPathologieRepository _medicamentPathologieRepository { get; set; }
+		private IMedicamentPathologieRepository _medicamentPathologieRepository;
 
 		/// <summary>
 		/// Initialise une nouvelle instance de <see cref="MedicamentPathologieController"/>

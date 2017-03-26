@@ -9,7 +9,7 @@ namespace APIGSB.Controllers
 	/// Contrôleur fournissant l'ensemble des <see cref="Metadata">métadonnées</see> de l'API
 	/// </summary>
 	[Route("api/[controller]")]
-	public class MetadataController : Microsoft.AspNetCore.Mvc.Controller
+	public class MetadataController : Controller
 	{
 		/// <summary>
 		/// Permet d'obtenir les métadonnées de l'API

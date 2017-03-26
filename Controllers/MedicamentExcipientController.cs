@@ -18,7 +18,7 @@ namespace APIGSB.Controllers
 		/// </summary>
 		/// <value>L'interface du repository permettant de gérer l'ajout et la suppression d'exciptient
 		/// pour un médicament donné</value>
-		public IMedicamentExcipientRepository _medicamentExcipientRepository { get; set; }
+		private IMedicamentExcipientRepository _medicamentExcipientRepository;
 
 		/// <summary>
 		/// Initialise une nouvelle instance de <see cref="MedicamentExcipientController"/>

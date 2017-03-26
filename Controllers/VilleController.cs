@@ -9,13 +9,13 @@ namespace APIGSB.Controllers
 	/// Contrôleur fournissant les données des <see cref="Ville"/>
 	/// </summary>
 	[Route("api/[controller]")]
-	public class VilleController : Microsoft.AspNetCore.Mvc.Controller
+	public class VilleController : Controller
 	{
 		/// <summary>
 		/// Interface du repertoire de requêtes des <see cref="Ville"/>
 		/// </summary>
 		/// <value>L'interface du repository des villes</value>
-		public IVilleRepository _villeRepository { get; set; }
+		private IVilleRepository _villeRepository;
 
 		/// <summary>
 		/// Initialise une nouvelle instance de <see cref="VilleController"/>

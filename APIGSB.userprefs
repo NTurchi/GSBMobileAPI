@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{8C0A19D9-E234-4593-B53C-9BE6264B61D9}|Default">
+  <MonoDevelop.Ide.ItemProperties.APIGSB PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="APIGSB.Test/UnitTest1.cs">
+    <Files>
+      <File FileName="APIGSB.Test/UnitTest1.cs" Line="11" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

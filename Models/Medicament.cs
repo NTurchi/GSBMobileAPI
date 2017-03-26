@@ -104,10 +104,10 @@ namespace APIGSB.Models
 		public ICollection<MedicamentPathologie> MedicamentPathologies { get; set; } 
 
 		/// <summary>
-		/// Les <see cref="Exciptient">exciptiens</see> (ingrédients) contient ce médicament
+		/// Les <see cref="Excipient">exciptiens</see> (ingrédients) contient ce médicament
 		/// </summary>
 		/// <value>Les exciptiens</value>
-		public ICollection<MedicamentExciptient> MedicamentExciptients { get; set; }
+		public ICollection<MedicamentExcipient> MedicamentExcipients { get; set; }
 
 		#endregion
 

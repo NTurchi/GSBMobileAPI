@@ -2,9 +2,9 @@
 namespace APIGSB.Models
 {
 	/// <summary>
-	/// Classe permettant le gestion de la liasion "Many To Many" entre un <see cref="Medicament"/> et ses <see cref="Exciptient />
+	/// Classe permettant le gestion de la liasion "Many To Many" entre un <see cref="Medicament"/> et ses <see cref="Excipient" />
 	/// </summary>
-	public class MedicamentExciptient
+	public class MedicamentExcipient
 	{
 		/// <summary>
 		/// Id du <see cref="Medicament"/>
@@ -19,15 +19,15 @@ namespace APIGSB.Models
 		public Medicament Medicament { get; set; }
 
 		/// <summary>
-		/// Id de l'<see cref="Exciptient"/>
+		/// Id de l'<see cref="Excipient"/>
 		/// </summary>
-		/// <value>L'identifiant primaire de l'exciptient</value>
-		public int ExciptientId { get; set; }
+		/// <value>L'identifiant primaire de l'excipient</value>
+		public int ExcipientId { get; set; }
 
 		/// <summary>
-		/// L'<see cref="Exciptient"/>
+		/// L'<see cref="Excipient"/>
 		/// </summary>
-		/// <value>L'exciptient</value>
-		public Exciptient Exciptient { get; set; }
+		/// <value>L'excipient</value>
+		public Excipient Excipient { get; set; }
 	}
 }

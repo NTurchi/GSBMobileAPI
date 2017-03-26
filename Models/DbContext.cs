@@ -38,7 +38,7 @@ namespace APIGSB.Models
 		/// Initialisation de la table Exciptient
 		/// </summary>
 		/// <value>Exciptien</value>
-		public DbSet<Exciptient> Exciptient { get; set; }
+		public DbSet<Excipient> Excipient { get; set; }
 
 		/// <summary>
 		/// Initialisation de la table Ville
@@ -65,10 +65,10 @@ namespace APIGSB.Models
 		public DbSet<MedicamentPathologie> MedicamentPathologie { get; set; }
 
 		/// <summary>
-		/// Initialisation de la table <see cref="MedicamentExciptient"/>
+		/// Initialisation de la table <see cref="MedicamentExcipient"/>
 		/// </summary>
 		/// <value>MedicamentExciptient</value>
-		public DbSet<MedicamentExciptient> MedicamentExciptient { get; set; }
+		public DbSet<MedicamentExcipient> MedicamentExcipient { get; set; }
 
 		/// <summary>
 		/// Configuration de la connexion à la base de données
@@ -111,20 +111,20 @@ namespace APIGSB.Models
 			#region Medicament Exciptien Clefs Etrangères (Many To Many)
 
 			// Définition de la clef primaire composé de l'entité
-			modelBuilder.Entity<MedicamentExciptient>()
-						.HasKey(mc => new { mc.MedicamentId, mc.ExciptientId });
+			modelBuilder.Entity<MedicamentExcipient>()
+						.HasKey(mc => new { mc.MedicamentId, mc.ExcipientId });
 
 			// Mise en place de la relation de clef étrangère avec l'entité Médicament
-			modelBuilder.Entity<MedicamentExciptient>()
+			modelBuilder.Entity<MedicamentExcipient>()
 						.HasOne(mc => mc.Medicament)
-						.WithMany(m => m.MedicamentExciptients)
+						.WithMany(m => m.MedicamentExcipients)
 						.HasForeignKey(mc => mc.MedicamentId);
 
-			// Mise en place de la relation de clef étrangère avec l'entité Exciptien
-			modelBuilder.Entity<MedicamentExciptient>()
-			            .HasOne(mc => mc.Exciptient)
-						.WithMany(p => p.MedicamentExciptients)
-						.HasForeignKey(mc => mc.ExciptientId);
+			// Mise en place de la relation de clef étrangère avec l'entité Excipient
+			modelBuilder.Entity<MedicamentExcipient>()
+			            .HasOne(mc => mc.Excipient)
+						.WithMany(p => p.MedicamentExcipients)
+						.HasForeignKey(mc => mc.ExcipientId);
 
 			#endregion
 		}

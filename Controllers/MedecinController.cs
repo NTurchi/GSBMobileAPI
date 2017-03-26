@@ -4,13 +4,13 @@ using APIGSB.Models.IRepository;
 using APIGSBAPIGSB.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
-namespace APIGSB.Controller
+namespace APIGSB.Controllers
 {
 	/// <summary>
 	/// Contrôleur fournissant les données des <see cref="Medecin"/>
 	/// </summary>
 	[Route("api/[controller]")]
-	public class MedecinController : Microsoft.AspNetCore.Mvc.Controller
+	public class MedecinController : Controller
 	{
 		/// <summary>
 		/// Interface du repertoire de requêtes des <see cref="Medecin"/>
@@ -58,6 +58,7 @@ namespace APIGSB.Controller
 		/// </summary>
 		/// <returns>Le resultat de la création</returns>
 		/// <param name="dtoMedecin">Le médecin à ajouter</param>
+		[HttpPost]
 		public IActionResult Create(DTOMedecin dtoMedecin)
 		{
 			if (dtoMedecin == null)

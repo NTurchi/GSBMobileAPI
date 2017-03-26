@@ -3,9 +3,9 @@ namespace APIGSB.Models.DTO
 {
 	/// <summary>
 	/// DTO (Data Transfert Object) Objet qui va être envoyé lors d'une requête de type "POST" d'un client.
-	/// Ici le DTO est crée pour l'ajout d'une entité <see cref="MedicamentExciptient"/> dans la base de données
+	/// Ici le DTO est crée pour l'ajout d'une entité <see cref="MedicamentExcipient"/> dans la base de données
 	/// </summary>
-	public class DTOMedicamentExciptient
+	public class DTOMedicamentExcipient
 	{
 		/// <summary>
 		/// Le <see cref="Medicament"/>
@@ -14,9 +14,9 @@ namespace APIGSB.Models.DTO
 		public Medicament Medicament { get; set; }
 
 		/// <summary>
-		/// L'<see cref="Exciptient"/>
+		/// L'<see cref="Excipient"/>
 		/// </summary>
-		/// <value>L'exciptient</value>
-		public Exciptient Exciptient { get; set; }
+		/// <value>L'excipient</value>
+		public Excipient Excipient { get; set; }
 	}
 }

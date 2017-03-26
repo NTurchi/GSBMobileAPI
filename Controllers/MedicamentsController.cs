@@ -58,6 +58,7 @@ namespace APIGSB.Controllers
 		/// </summary>
 		/// <returns>Le resultat de la création</returns>
 		/// <param name="dtoMedicament">Le medicament à ajouter</param>
+		[HttpPost]
 		public IActionResult Create(DTOMedicament dtoMedicament)
 		{
 			if (dtoMedicament == null)

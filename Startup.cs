@@ -52,8 +52,8 @@ namespace APIGSB
 			services.AddSingleton<IMedicamentRepository, MedicamentRepository>();
 			services.AddSingleton<IMedecinRepository, MedecinRepository>();
 			services.AddSingleton<IPathologieRepository, PathologieRepository>();
-			services.AddSingleton<IExciptientRepository, ExciptientRepository>();
-			services.AddSingleton<IMedicamentExciptientRepository, MedicamentExciptientRepository>();
+			services.AddSingleton<IExcipientRepository, ExcipientRepository>();
+			services.AddSingleton<IMedicamentExcipientRepository, MedicamentExcipientRepository>();
 			services.AddSingleton<IMedicamentPathologieRepository, MedicamentPathologieRepository>();
 
 		}

@@ -4,26 +4,26 @@ using System.Collections.Generic;
 namespace APIGSB.Models
 {
 	/// <summary>
-	/// Classe correspondant à une Exciptien
+	/// Classe correspondant à une Excipient
 	/// </summary>
-	public class Exciptient
+	public class Excipient
 	{
 		/// <summary>
-		/// Identifiant primaire de l'objet Exciptient
+		/// Identifiant primaire de l'objet Excipient
 		/// </summary>
 		/// <value>L'identifiant</value>
 		public int Id { get; set; }
 
 		/// <summary>
-		/// Nom de l'exciptient
+		/// Nom de l'excipient
 		/// </summary>
 		/// <value>Le nom</value>
 		public string Libelle { get; set; }
 
 		/// <summary>
-		/// Liste des <see cref="Medicament"/> ayant cet Exciptient
+		/// Liste des <see cref="Medicament"/> ayant cet excipient
 		/// </summary>
-		/// <value>Les médicaments contenant cette exciptient</value>
-		public ICollection<MedicamentExciptient> MedicamentExciptients { get; set; }
+		/// <value>Les médicaments contenant cette excipient</value>
+		public ICollection<MedicamentExcipient> MedicamentExcipients { get; set; }
 	}
 }

@@ -3,7 +3,7 @@ using System.Net.Http;
 using APIGSB.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace APIGSB
+namespace APIGSB.Controllers
 {
 	/// <summary>
 	/// Contrôleur fournissant l'ensemble des <see cref="Metadata">métadonnées</see> de l'API
@@ -72,7 +72,7 @@ namespace APIGSB
 			metadataList.Add(Metadata
 			                 .MetadataFactory
 			                 .Instance
-			                 .GetMetadata<Exciptient>(
+			                 .GetMetadata<Excipient>(
 				                 HttpMethod.Get, 
 				                 HttpMethod.Get
 			                ));
@@ -90,7 +90,7 @@ namespace APIGSB
 			metadataList.Add(Metadata
 			                 .MetadataFactory
 			                 .Instance
-			                 .GetMetadata<MedicamentExciptient>(
+			                 .GetMetadata<MedicamentExcipient>(
 				                 HttpMethod.Post, 
 				                 HttpMethod.Get, 
 				                 HttpMethod.Get, 

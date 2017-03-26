@@ -3,10 +3,10 @@ using APIGSB.Models;
 using APIGSB.Models.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace APIGSB
+namespace APIGSB.Controllers
 {
 	/// <summary>
-	/// Contrôleur fournissant les données des <see cref="Medicament"/>
+	/// Contrôleur fournissant les données des <see cref="Ville"/>
 	/// </summary>
 	[Route("api/[controller]")]
 	public class VilleController : Microsoft.AspNetCore.Mvc.Controller
@@ -29,7 +29,7 @@ namespace APIGSB
 		/// <summary>
 		/// Envoie l'ensemble des <see cref="Ville"/> de la base de données
 		/// </summary>
-		/// <returns>Les familles de la base de données</returns>
+		/// <returns>Les villes de la base de données</returns>
 		[HttpGet]
 		public IEnumerable<Ville> GetAll()
 		{

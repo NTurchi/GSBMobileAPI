@@ -3,7 +3,7 @@ using APIGSB.Models;
 using APIGSB.Models.IRepository;
 using Microsoft.AspNetCore.Mvc;
 
-namespace APIGSB
+namespace APIGSB.Controllers
 {
 	/// <summary>
 	/// Contrôleur fournissant les données des <see cref="Pathologie"/>

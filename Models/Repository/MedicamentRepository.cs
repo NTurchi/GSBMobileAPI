@@ -36,8 +36,8 @@ namespace APIGSB.Models.Repository
 				           .Include(m => m.Famille)
 				           .Include(m => m.MedicamentPathologies)
 				           		.ThenInclude(mp => mp.Pathologie)
-				           .Include(m => m.MedicamentExciptients)
-				           		.ThenInclude(me => me.Exciptient) 
+				           .Include(m => m.MedicamentExcipients)
+				           		.ThenInclude(me => me.Excipient) 
 				           .ToList();
         }
 
@@ -60,8 +60,8 @@ namespace APIGSB.Models.Repository
             return _context.Medicament.Include(m => m.Famille)
 						   .Include(m => m.MedicamentPathologies)
 							   .ThenInclude(mp => mp.Pathologie)
-						   .Include(m => m.MedicamentExciptients)
-							   .ThenInclude(me => me.Exciptient)
+						   .Include(m => m.MedicamentExcipients)
+							   .ThenInclude(me => me.Excipient)
 				           .FirstOrDefault(t => t.Id == id);
         }
 

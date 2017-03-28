@@ -31,11 +31,18 @@ namespace APIGSB.Models.Repository
 		/// Voir <see cref="IMedicamentExcipientRepository"/>
 		/// </summary>
 		/// <returns>Voir <see cref="IMedicamentExcipientRepository"/></returns>
-		public IEnumerable<MedicamentExcipient> GetAll(int idMedicament)
+		public IEnumerable<Excipient> GetAll(int idMedicament)
 		{
-			// TODO: FAIRE PAR RAPPORT A L'ID DU MEDICAMENT
-			var a = _context.MedicamentExcipient.ToList();
-			return a;
+			var medicamentexciptients = _context.MedicamentExcipient.Where(me => me.MedicamentId == idMedicament).ToList();
+
+			List<Excipient> excipients = new List<Excipient>();
+
+			foreach(MedicamentExcipient me in medicamentexciptients)
+			{
+				excipients.Add(me.Excipient);
+			}
+
+			return excipients;
 		}
 
 		/// <summary>

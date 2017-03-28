@@ -50,7 +50,7 @@ namespace APIGSB.Controllers
 		/// <returns>Une page de resultat vide</returns>
 		/// <param name="idMedicament">L'identifiant primaire du médicament</param>
 		/// <param name="excipients">La collection d'excipient</param>
-		[HttpDelete("{idMedicament}", Name ="DeleteExcipientsFromMedicament")]
+		[HttpPost("{idMedicament}", Name="DeleteExcipientsFromMedicament")]
 		public IActionResult DeleteFromMedicament(int idMedicament, [FromBody] IEnumerable<Excipient> excipients)
 		{
 			_medicamentExcipientRepository.RemoveRangeExcipient(idMedicament, excipients as List<Excipient>);

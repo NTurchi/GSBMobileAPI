@@ -13,7 +13,7 @@ namespace APIGSB.Models.IRepository
 		/// </summary>
 		/// <returns>Une collection d'excipient d'un médicament implémentant l'interface IEnumerable</returns>
 		/// <param name="idMedicament">Id du médicament dont l'on veut obtenir ses excipients</param>
-		IEnumerable<MedicamentExcipient> GetAll(int idMedicament);
+		IEnumerable<Excipient> GetAll(int idMedicament);
 
 		/// <summary>
 		/// Ajoute un <see cref="Excipient"/> à un <see cref="Medicament"/>

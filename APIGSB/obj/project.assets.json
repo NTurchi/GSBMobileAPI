@@ -10813,11 +10813,14 @@
       "projectUniqueName": "/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/APIGSB.csproj",
       "projectName": "APIGSB",
       "projectPath": "/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/APIGSB.csproj",
-      "outputPath": "/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/obj",
+      "outputPath": "/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/obj/",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
       ],
+      "files": {
+        "lib/netcoreapp1.1/APIGSB.dll": "/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/bin/placeholder/netcoreapp1.1/APIGSB.dll"
+      },
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {}

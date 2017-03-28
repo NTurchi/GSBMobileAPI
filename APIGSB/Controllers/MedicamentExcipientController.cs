@@ -34,7 +34,7 @@ namespace APIGSB.Controllers
 		/// </summary>
 		/// <returns>Les exciptients d'un médicament</returns>
 		[HttpGet("{id}", Name="GetMedicamentExcipient")]
-		public IEnumerable<MedicamentExcipient> Get(int id)
+		public IEnumerable<Excipient> Get(int id)
 		{
 			return _medicamentExcipientRepository.GetAll(id);
 		}

@@ -48,13 +48,13 @@ namespace APIGSB
 
 			// Définition des singleton de l'API pour retrouver ensuite les Repository de certain model dans les
 			// controller en passant l'injection de dépendances
-			services.AddSingleton<IFamilleRepository, FamilleRepository>();
-			services.AddSingleton<IMedicamentRepository, MedicamentRepository>();
-			services.AddSingleton<IMedecinRepository, MedecinRepository>();
-			services.AddSingleton<IPathologieRepository, PathologieRepository>();
-			services.AddSingleton<IExcipientRepository, ExcipientRepository>();
-			services.AddSingleton<IMedicamentExcipientRepository, MedicamentExcipientRepository>();
-			services.AddSingleton<IMedicamentPathologieRepository, MedicamentPathologieRepository>();
+			services.AddScoped<IFamilleRepository, FamilleRepository>();
+			services.AddScoped<IMedicamentRepository, MedicamentRepository>();
+			services.AddScoped<IMedecinRepository, MedecinRepository>();
+			services.AddScoped<IPathologieRepository, PathologieRepository>();
+			services.AddScoped<IExcipientRepository, ExcipientRepository>();
+			services.AddScoped<IMedicamentExcipientRepository, MedicamentExcipientRepository>();
+			services.AddScoped<IMedicamentPathologieRepository, MedicamentPathologieRepository>();
 
 		}
 

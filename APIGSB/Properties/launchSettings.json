@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:64412/",
+      "applicationUrl": "http://localhost:8200/",
       "sslPort": 0
     }
   },
@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/medicaments",
+      "launchUrl": "api/medicament",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -19,11 +19,11 @@
     "APIGSB": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/medicaments",
+      "launchUrl": "api/medicament",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:64413"
+      "applicationUrl": "http://localhost:8200"
     }
   }
 }

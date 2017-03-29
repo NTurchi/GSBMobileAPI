@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace APIGSB.Controllers
 {
+    // TODO : Utiliser le fichier json
 	/// <summary>
 	/// Contrôleur fournissant l'ensemble des <see cref="Metadata">métadonnées</see> de l'API
 	/// </summary>
@@ -18,87 +19,87 @@ namespace APIGSB.Controllers
 		[HttpGet]
 		public object GetAll()
         {
-			List<IDictionary<string, List<Metadata.Metadata>>> metadataList = new List<IDictionary<string, List<Metadata.Metadata>>>();
+			//List<IDictionary<string, List<Metadata.Metadata>>> metadataList = new List<IDictionary<string, List<Metadata.Metadata>>>();
 
-			// Ajout des différentes métadonnées par entités
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance
-			                 .GetMetadata<Medecin>(
-				                 HttpMethod.Post, 
-                                 HttpMethod.Get, 
-                                 HttpMethod.Get, 
-                                 HttpMethod.Put, 
-                                 HttpMethod.Delete
-			                ));
+			//// Ajout des différentes métadonnées par entités
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance
+			//                 .GetMetadata<Medecin>(
+			//	                 HttpMethod.Post, 
+   //                              HttpMethod.Get, 
+   //                              HttpMethod.Get, 
+   //                              HttpMethod.Put, 
+   //                              HttpMethod.Delete
+			//                ));
 			
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance
-			                 .GetMetadata<Famille>(
-				                 HttpMethod.Post, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Put, 
-				                 HttpMethod.Delete
-			                ));
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance
+			//                 .GetMetadata<Famille>(
+			//	                 HttpMethod.Post, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Put, 
+			//	                 HttpMethod.Delete
+			//                ));
 			
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance.GetMetadata<Medicament>(
-				                 HttpMethod.Post, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Put, 
-				                 HttpMethod.Delete
-			                ));
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance.GetMetadata<Medicament>(
+			//	                 HttpMethod.Post, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Put, 
+			//	                 HttpMethod.Delete
+			//                ));
 
-			metadataList.Add(Metadata
-							 .MetadataFactory
-							 .Instance
-			                 .GetMetadata<Ville>(
-								 HttpMethod.Get,
-								 HttpMethod.Get
-							));
+			//metadataList.Add(Metadata
+			//				 .MetadataFactory
+			//				 .Instance
+			//                 .GetMetadata<Ville>(
+			//					 HttpMethod.Get,
+			//					 HttpMethod.Get
+			//				));
 
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance
-			                 .GetMetadata<Pathologie>(
-				                 HttpMethod.Get, 
-				                 HttpMethod.Get
-			                ));
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance
+			//                 .GetMetadata<Pathologie>(
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Get
+			//                ));
 
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance
-			                 .GetMetadata<Excipient>(
-				                 HttpMethod.Get, 
-				                 HttpMethod.Get
-			                ));
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance
+			//                 .GetMetadata<Excipient>(
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Get
+			//                ));
 
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance
-			                 .GetMetadata<MedicamentPathologie>(
-				                 HttpMethod.Post, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Delete
-			                ));
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance
+			//                 .GetMetadata<MedicamentPathologie>(
+			//	                 HttpMethod.Post, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Delete
+			//                ));
 			
-			metadataList.Add(Metadata
-			                 .MetadataFactory
-			                 .Instance
-			                 .GetMetadata<MedicamentExcipient>(
-				                 HttpMethod.Post, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Get, 
-				                 HttpMethod.Delete
-			                ));
+			//metadataList.Add(Metadata
+			//                 .MetadataFactory
+			//                 .Instance
+			//                 .GetMetadata<MedicamentExcipient>(
+			//	                 HttpMethod.Post, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Get, 
+			//	                 HttpMethod.Delete
+			//                ));
 
 
-			return new { RouteBase = ApiConfiguration.ROUTE_BASE, Metadata = metadataList};
+			return new { RouteBase = ApiConfiguration.ROUTE_BASE, Metadata = "TODO"};
 		}
 	}
 }

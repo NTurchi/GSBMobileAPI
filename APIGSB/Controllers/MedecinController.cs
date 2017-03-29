@@ -59,7 +59,7 @@ namespace APIGSB.Controllers
 		/// <returns>Le resultat de la création</returns>
 		/// <param name="dtoMedecin">Le médecin à ajouter</param>
 		[HttpPost]
-		public IActionResult Create(DTOMedecin dtoMedecin)
+		public IActionResult Create([FromBody] DTOMedecin dtoMedecin)
 		{
 			if (dtoMedecin == null)
 			{

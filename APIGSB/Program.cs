@@ -16,7 +16,8 @@ namespace APIGSB
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
-                .UseUrls("http://*:8100")
+                .UseIISIntegration()
+                .UseUrls("http://*:8200")
                 .Build();
 
             host.Run();

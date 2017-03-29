@@ -1,9 +1,0 @@
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\bin\Release\netcoreapp1.0\APIGSB.deps.json
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\bin\Release\netcoreapp1.0\APIGSB.runtimeconfig.json
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\bin\Release\netcoreapp1.0\APIGSB.runtimeconfig.dev.json
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\bin\Release\netcoreapp1.0\APIGSB.dll
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\bin\Release\netcoreapp1.0\APIGSB.pdb
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\obj\Release\netcoreapp1.0\APIGSB.AssemblyInfo.cs
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\obj\Release\netcoreapp1.0\APIGSB.dll
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\obj\Release\netcoreapp1.0\APIGSB.pdb
-G:\PPE\PPE\APIGSB\APIGSB\APIGSB\obj\Release\netcoreapp1.0\APIGSB.csprojResolveAssemblyReference.cache

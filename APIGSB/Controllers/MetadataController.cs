@@ -97,9 +97,8 @@ namespace APIGSB.Controllers
 			//	                 HttpMethod.Get, 
 			//	                 HttpMethod.Delete
 			//                ));
-
-
-			return new { RouteBase = ApiConfiguration.ROUTE_BASE, Metadata = "TODO"};
+            
+			return new { RouteBase = ApiConfiguration.ROUTE_BASE, Metadata = "todo"};
 		}
 	}
 }

@@ -37,11 +37,23 @@ namespace APIGSB.Models.Repository
 			return a;
 		}
 
-		/// <summary>
-		/// Voir <see cref="IMedecinRepository"/>
-		/// </summary>
-		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
-		public void Add(Medecin medecin)
+	    public IEnumerable<Medecin> FindUsingMatricule(string matricule)
+	    {
+            return  _context.Medecin
+                .Where(m => m.VisiteurMatricule.ToLower() == matricule.ToLower())
+                .Select(m => new Medecin
+                {
+                    Nom = m.Nom,
+                    Id = m.Id,
+                    Prenom = m.Prenom
+                })
+                .ToList();
+	    }
+        /// <summary>
+        /// Voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <returns>Voir <see cref="IMedecinRepository"/></returns>
+        public void Add(Medecin medecin)
 		{
 			_context.Medecin.Add(medecin);
 			_context.SaveChanges();

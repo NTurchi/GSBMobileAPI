@@ -50,6 +50,7 @@ namespace APIGSB
 			// controller en passant l'injection de dépendances
 			services.AddScoped<IFamilleRepository, FamilleRepository>();
 			services.AddScoped<IMedicamentRepository, MedicamentRepository>();
+			services.AddScoped<IMatriculeRepository, MatriculeRepository>();
 			services.AddScoped<IMedecinRepository, MedecinRepository>();
 			services.AddScoped<IPathologieRepository, PathologieRepository>();
 			services.AddScoped<IExcipientRepository, ExcipientRepository>();

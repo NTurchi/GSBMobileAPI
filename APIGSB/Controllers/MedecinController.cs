@@ -37,12 +37,23 @@ namespace APIGSB.Controllers
 			return _medecinRepository.GetAll();
 		}
 
-		/// <summary>
-		/// Renvoie un <see cref="Medecin"/> bien précis à partir de son Id
+        /// <summary>
+		/// Renvoie des <see cref="Medecin"/> reliés au visiteur
 		/// </summary>
 		/// <returns>La médecin recherché</returns>
-		/// <param name="id">L'identifiant primaire du médecin à trouver</param>
-		[HttpGet("{id}", Name = "GetMedecin")]
+		/// <param name="matricule">Le matricule du visiteur référent</param>
+		[HttpGet("matricule/{matricule}", Name = "GetMedecinsUsingMatricule")]
+        public IEnumerable<Medecin> GetUsingMatricule(string matricule)
+        {
+            return _medecinRepository.FindUsingMatricule(matricule);
+        }
+
+        /// <summary>
+        /// Renvoie un <see cref="Medecin"/> bien précis à partir de son Id
+        /// </summary>
+        /// <returns>La médecin recherché</returns>
+        /// <param name="id">L'identifiant primaire du médecin à trouver</param>
+        [HttpGet("{id}", Name = "GetMedecin")]
 		public IActionResult GetById(int id)
 		{
 			var item = _medecinRepository.Find(id);

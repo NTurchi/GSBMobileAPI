@@ -15,11 +15,16 @@ namespace APIGSB.Models.IRepository
 		/// <returns>Une collection de médecin implémentant l'interface IEnumerable</returns>
 		IEnumerable<Medecin> GetAll();
 
-		/// <summary>
-		/// Fonction d'ajout à la base de donnée d'un objet <see cref="Medecin"/>
-		/// </summary>
-		/// <param name="medecin">Le nouveau médecin à ajouter</param>
-		void Add(Medecin medecin);
+        /// <summary>
+        /// Obtiens tous les <see cref="Medecin"/> reliés au matricule
+        /// </summary>
+        /// <returns>Liste de <see cref="Medecin"/></returns>
+        IEnumerable<Medecin> FindUsingMatricule(string matricule);
+        /// <summary>
+        /// Fonction d'ajout à la base de donnée d'un objet <see cref="Medecin"/>
+        /// </summary>
+        /// <param name="medecin">Le nouveau médecin à ajouter</param>
+        void Add(Medecin medecin);
 
 		/// <summary>
 		/// Cherche un <see cref="Medecin"/>en particulier dans la base de données à partir de son identifiant primaire

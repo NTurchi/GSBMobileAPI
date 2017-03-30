@@ -32,8 +32,8 @@ namespace APIGSB.Controllers
 		/// </summary>
 		/// <returns>Les médicaments de la base de données</returns>
         [HttpGet]
-        public IEnumerable<Medicament> GetAll()
-        {
+        public IEnumerable<Medicament> GetAll() { 
+     
 			return _medicamentRepository.GetAll();
         }
 

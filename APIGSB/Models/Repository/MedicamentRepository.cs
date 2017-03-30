@@ -54,7 +54,7 @@ namespace APIGSB.Models.Repository
                     Id = m.Id,
                     Famille = m.Famille
                 })
-                .ToList();;
+                .ToList();
         }
 
         /// <summary>
@@ -73,11 +73,11 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
         public Medicament Find(int id)
         {
-            return _context.Medicament.Include(m => m.Famille.Nom)
+            return _context.Medicament.Include(m => m.Famille)
 						   .Include(m => m.MedicamentPathologies)
-							   .ThenInclude(mp => mp.Pathologie.Libelle)
+							   .ThenInclude(mp => mp.Pathologie)
 						   .Include(m => m.MedicamentExcipients)
-							   .ThenInclude(me => me.Excipient.Libelle)
+							   .ThenInclude(me => me.Excipient)
 				           .FirstOrDefault(t => t.Id == id);
         }
 

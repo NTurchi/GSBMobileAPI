@@ -16,11 +16,17 @@ namespace APIGSB.Models.IRepository
 		/// <returns>Une collection de médicaments implémentant l'interface IEnumerable</returns>
         IEnumerable<Medicament> GetAll();
 
-		/// <summary>
-		/// Fonction d'ajout à la base de donnée d'un objet <see cref="Medicament"/>
+        /// <summary>
+		/// Obtenir tous les infos de base des <see cref="Medicament"/> présents dans la base de données
 		/// </summary>
-		/// <param name="medicament">Le nouveau médicament à ajouter</param>
-		void Add(Medicament medicament);
+		/// <returns>Une collection de données de médicaments implémentant l'interface IEnumerable</returns>
+        IEnumerable<Medicament> GetAllNameAndFamilly();
+
+        /// <summary>
+        /// Fonction d'ajout à la base de donnée d'un objet <see cref="Medicament"/>
+        /// </summary>
+        /// <param name="medicament">Le nouveau médicament à ajouter</param>
+        void Add(Medicament medicament);
 
 		/// <summary>
 		/// Cherche un <see cref="Medicament"/>en particulier dans la base de données à partir de son identifiant primaire

@@ -37,11 +37,21 @@ namespace APIGSB.Controllers
 			return _medicamentRepository.GetAll();
         }
 
-		/// <summary>
-		/// Renvoie un <see cref="Medicament"/> bien précis à partir de son Id
+        /// <summary>
+		/// Envoie l'ensemble des infos de base des <see cref="Medicament"/> de la base de données
 		/// </summary>
-		/// <returns>Le médicament recherché</returns>
-		/// <param name="id">L'identifiant primaire du médicament à trouver</param>
+		/// <returns>Les médicaments de la base de données</returns>
+        [HttpGet("short")]
+        public IEnumerable<Medicament> GetAllNameAndFamilly()
+        {
+            return _medicamentRepository.GetAllNameAndFamilly();
+        }
+
+        /// <summary>
+        /// Renvoie un <see cref="Medicament"/> bien précis à partir de son Id
+        /// </summary>
+        /// <returns>Le médicament recherché</returns>
+        /// <param name="id">L'identifiant primaire du médicament à trouver</param>
         [HttpGet("{id}", Name = "GetMedicament")]
         public IActionResult GetById(int id)
         {

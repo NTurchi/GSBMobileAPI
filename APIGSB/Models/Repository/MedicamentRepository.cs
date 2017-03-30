@@ -32,20 +32,36 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
         public IEnumerable<Medicament> GetAll()
         {
-			return _context.Medicament
-				           .Include(m => m.Famille)
-				           .Include(m => m.MedicamentPathologies)
-				           		.ThenInclude(mp => mp.Pathologie)
-				           .Include(m => m.MedicamentExcipients)
-				           		.ThenInclude(me => me.Excipient) 
-				           .ToList();
+            return _context.Medicament
+                           .Include(m => m.Famille)
+                           .Include(m => m.MedicamentPathologies)
+                                   .ThenInclude(mp => mp.Pathologie)
+                           .Include(m => m.MedicamentExcipients)
+                                   .ThenInclude(me => me.Excipient)
+                           .ToList();
         }
 
-		/// <summary>
+        /// <summary>
 		/// Voir <see cref="IMedicamentRepository"/>
 		/// </summary>
 		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
-		public void Add(Medicament medicament)
+        public IEnumerable<Medicament> GetAllNameAndFamilly()
+        {
+            return _context.Medicament
+                .Select(m => new Medicament
+                {
+                    Nom = m.Nom,
+                    Id = m.Id,
+                    Famille = m.Famille
+                })
+                .ToList();;
+        }
+
+        /// <summary>
+        /// Voir <see cref="IMedicamentRepository"/>
+        /// </summary>
+        /// <returns>Voir <see cref="IMedicamentRepository"/></returns>
+        public void Add(Medicament medicament)
 		{
 			_context.Medicament.Add(medicament);
 			_context.SaveChanges();
@@ -57,11 +73,11 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
         public Medicament Find(int id)
         {
-            return _context.Medicament.Include(m => m.Famille)
+            return _context.Medicament.Include(m => m.Famille.Nom)
 						   .Include(m => m.MedicamentPathologies)
-							   .ThenInclude(mp => mp.Pathologie)
+							   .ThenInclude(mp => mp.Pathologie.Libelle)
 						   .Include(m => m.MedicamentExcipients)
-							   .ThenInclude(me => me.Excipient)
+							   .ThenInclude(me => me.Excipient.Libelle)
 				           .FirstOrDefault(t => t.Id == id);
         }
 

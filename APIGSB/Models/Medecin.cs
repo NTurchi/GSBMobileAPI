@@ -53,5 +53,12 @@ namespace APIGSB.Models
 		/// </summary>
 		/// <value>La ville</value>
 		public Ville Ville { get; set; }
-	}
+
+
+        /// <summary>
+        /// Matricule du visiteur
+        /// </summary>
+        /// <value>Le matricule</value>
+        public string VisiteurMatricule { get; set; }
+    }
 }

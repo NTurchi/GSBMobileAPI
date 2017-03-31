@@ -9,7 +9,7 @@ namespace APIGSB
 	/// Repository de l'entité <see cref="Ville"/> implémentant l'interface
 	/// <see cref="IVilleRepository"/>
 	/// </summary>
-	public class VilleRepository
+	public class VilleRepository : IVilleRepository
 	{
 		/// <summary>
 		/// Base de donnée de l'application, c'est ce qui nous permettra d'effectuer

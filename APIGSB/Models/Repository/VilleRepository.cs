@@ -34,5 +34,11 @@ namespace APIGSB
 		{
 			return _context.Ville.ToList();
 		}
+
+	    public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
+	    {
+	        return from medecin in _context.Medecin.Where(m => m.VisiteurMatricule == matricule)
+                   select medecin.Ville;
+	    }
 	}
 }

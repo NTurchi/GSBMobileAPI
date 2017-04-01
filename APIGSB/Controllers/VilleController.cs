@@ -35,5 +35,13 @@ namespace APIGSB.Controllers
 		{
 			return _villeRepository.GetAll();
 		}
-	}
+
+        [HttpGet("{matricule}")]
+        public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
+        {
+            var a = _villeRepository.MedecinsVillesUsingMatricule(matricule);
+            return _villeRepository.MedecinsVillesUsingMatricule(matricule);
+        }
+
+    }
 }

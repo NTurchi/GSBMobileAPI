@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace APIGSB.Models
 {
 	/// <summary>
@@ -6,11 +8,12 @@ namespace APIGSB.Models
 	/// </summary>
 	public class Medecin
 	{
-		/// <summary>
-		/// Identifiant primaire de l'objet Médecin
-		/// </summary>
-		/// <value>L'identifiant</value>
-		public int Id { get; set; }
+        #region property
+        /// <summary>
+        /// Identifiant primaire de l'objet Médecin
+        /// </summary>
+        /// <value>L'identifiant</value>
+        public int Id { get; set; }
 
 		/// <summary>
 		/// Nom du Médecin
@@ -48,17 +51,30 @@ namespace APIGSB.Models
 		/// <value>Longitude</value>
 		public double Longitude { get; set; }
 
+        /// <summary>
+        /// Adresse postal du médecin pour pouvoir accéder à son cabinet
+        /// <value>Adresse</value>
+        /// </summary>
+        public string Adresse { get; set; }
 		/// <summary>
 		/// Ville où habite le médecin
 		/// </summary>
 		/// <value>La ville</value>
 		public Ville Ville { get; set; }
 
+        #endregion property
+
+        #region clés étrangères
+
+        public string VisiteurMatricule { get; set; }
 
         /// <summary>
-        /// Matricule du visiteur
+        /// L'objet <see cref="Visiteur">Visiteur</see> du médecin
         /// </summary>
-        /// <value>Le matricule</value>
-        public string VisiteurMatricule { get; set; }
+        /// <value>La famille du médicament</value>
+        public Visiteur Visiteur { get; set; }
+
+        #endregion clés étrangères
+
     }
 }

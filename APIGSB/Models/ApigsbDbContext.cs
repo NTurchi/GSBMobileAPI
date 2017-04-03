@@ -52,7 +52,13 @@ namespace APIGSB.Models
 		/// <value>Medecin</value>
 		public DbSet<Medecin> Medecin { get; set; }
 
-		/// <summary>
+        /// <summary>
+        /// Initialisation de la table visiteur
+        /// <value>Visiteur</value>
+        /// </summary>
+        public DbSet<Visiteur> Visiteur { get; set; }
+
+        /// <summary>
 		/// Initialisation de la table Pathologie
 		/// </summary>
 		/// <value>Pathologie</value>

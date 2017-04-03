@@ -8,9 +8,10 @@ using APIGSB.Models;
 namespace APIGSB.Migrations
 {
     [DbContext(typeof(ApigsbDbContext))]
-    partial class ApigsbDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170403140411_AddMatriculeForVisiteur")]
+    partial class AddMatriculeForVisiteur
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752")
@@ -62,8 +63,6 @@ namespace APIGSB.Migrations
                     b.Property<int?>("VilleId");
 
                     b.Property<int?>("VisiteurId");
-
-                    b.Property<string>("VisiteurMatricule");
 
                     b.HasKey("Id");
 

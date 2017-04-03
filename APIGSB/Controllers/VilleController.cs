@@ -36,6 +36,11 @@ namespace APIGSB.Controllers
 			return _villeRepository.GetAll();
 		}
 
+        /// <summary>
+        /// Envoie l'ensemble des <see cref="Ville"/> contenant un médecin relié au matricule
+        /// </summary>
+        /// <param name="matricule">Matricule concerné</param>
+        /// <returns></returns>
         [HttpGet("{matricule}")]
         public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
         {

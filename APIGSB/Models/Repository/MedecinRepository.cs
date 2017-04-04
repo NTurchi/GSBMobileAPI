@@ -33,10 +33,13 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public IEnumerable<Medecin> GetAll()
 		{
-			var a = _context.Medecin.ToList();
-			return a;
+			return _context.Medecin.ToList();
 		}
-
+        /// <summary>
+        /// Voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <param name="matricule">Voir <see cref="IMedecinRepository"/></param>
+        /// <returns>Liste de médecins</returns>
 	    public IEnumerable<Medecin> FindUsingMatricule(string matricule)
 	    {
             return  _context.Medecin
@@ -49,6 +52,30 @@ namespace APIGSB.Models.Repository
                 })
                 .ToList();
 	    }
+        /// <summary>
+        /// Voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <param name="villeid">Voir <see cref="IMedecinRepository"/></param>
+        /// <param name="matricule">Voir <see cref="IMedecinRepository"/></param>
+        /// <returns>Voir Interface</returns>
+	    public IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule)
+        {
+            var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
+            return _context.Medecin
+                .Where(m => m.Ville == ville)
+                .Where(m => m.VisiteurMatricule == matricule);
+	    }
+        /// <summary>
+        /// Voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <param name="villeid">Voir <see cref="IMedecinRepository"/></param>
+        /// <returns>Voir Interface</returns>
+	    public IEnumerable<Medecin> GetAllUsingVille(int villeid)
+        {
+            var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
+            return _context.Medecin
+                .Where(m => m.Ville == ville);
+        }
         /// <summary>
         /// Voir <see cref="IMedecinRepository"/>
         /// </summary>
@@ -65,7 +92,10 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public Medecin Find(int id)
 		{
-			return _context.Medecin.FirstOrDefault(t => t.Id == id);
+			return _context
+                .Medecin
+                .Include(m=>m.Ville)
+                .FirstOrDefault(t => t.Id == id);
 		}
 
 		/// <summary>

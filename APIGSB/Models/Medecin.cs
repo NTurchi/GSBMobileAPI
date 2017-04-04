@@ -61,6 +61,21 @@ namespace APIGSB.Models
 		/// </summary>
 		/// <value>La ville</value>
 		public Ville Ville { get; set; }
+        /// <summary>
+        /// Numéro de telephone du médecin
+        /// </summary>
+        /// <value>Le numéro de téléphone</value>
+	    public string Telephone { get; set; }
+        /// <summary>
+        /// Adresse email du médecin
+        /// </summary>
+        /// <value>L'adresse email</value>
+        public string Email { get; set; }
+        /// <summary>
+        /// Horaires préférées pour les visites
+        /// </summary>
+        /// <value>Les préférences horaires pour la visite</value>
+        public string HoraireVisite { get; set; }
 
         #endregion property
 

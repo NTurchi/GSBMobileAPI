@@ -132,5 +132,28 @@ namespace APIGSB.Controllers
 			_medecinRepository.Remove(id);
 			return new NoContentResult();
 		}
-	}
+
+        /// <summary>
+		/// Envoie des <see cref="Medecin"/> de la base de données liés a ce matricule et situés dans cette ville
+		/// <param name="villeid">Identifiant de la ville</param>
+		/// <param name="matricule">Matricule du visiteur responsable</param>
+		/// </summary>
+		/// <returns>Les médecins de la base de données correspondants à ces critères</returns>
+		[HttpGet("{villeid}/{matricule}")]
+        public IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule)
+        {
+            return _medecinRepository.GetAllUsingVilleAndMatricule(villeid, matricule);
+        }
+
+        /// <summary>
+		/// Envoie des <see cref="Medecin"/> de la base de données situés dans cette ville
+		/// <param name="villeid">Identifiant de la ville</param>
+		/// </summary>
+		/// <returns>Les médecins de la base de données correspondants à ce critère</returns>
+		[HttpGet("ville/{villeid}")]
+        public IEnumerable<Medecin> GetAllUsingVille(int villeid)
+        {
+            return _medecinRepository.GetAllUsingVille(villeid);
+        }
+    }
 }

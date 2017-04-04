@@ -41,12 +41,21 @@ namespace APIGSB.Controllers
         /// </summary>
         /// <param name="matricule">Matricule concerné</param>
         /// <returns></returns>
-        [HttpGet("{matricule}")]
+        [HttpGet("matricule/{matricule}")]
         public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
         {
-            var a = _villeRepository.MedecinsVillesUsingMatricule(matricule);
             return _villeRepository.MedecinsVillesUsingMatricule(matricule);
         }
 
+        /// <summary>
+        /// Envoie l'ensemble des <see cref="Ville"/> du département
+        /// </summary>
+        /// <param name="departementid">Département concerné</param>
+        /// <returns></returns>
+        [HttpGet("{departementid}")]
+        public IEnumerable<Ville> VillesUsingDepartement(int departementid)
+        {
+            return _villeRepository.VillesUsingDepartement(departementid);
+        }
     }
 }

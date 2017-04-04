@@ -21,5 +21,12 @@ namespace APIGSB
         /// <param name="matricule">Matricule du visiteur pour lequel on recherche les villes des médecins</param>
         /// <returns></returns>
 	    IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule);
+
+        /// <summary>
+        /// Obtenir toutes les <see cref="Ville"/> du département correspondant
+        /// </summary>
+        /// <param name="departementid">Id du département pour lequel on recherche les villes</param>
+        /// <returns></returns>
+        IEnumerable<Ville> VillesUsingDepartement(int departementid);
 	}
 }

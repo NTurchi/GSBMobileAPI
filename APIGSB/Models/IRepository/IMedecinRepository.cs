@@ -20,6 +20,21 @@ namespace APIGSB.Models.IRepository
         /// </summary>
         /// <returns>Liste de <see cref="Medecin"/></returns>
         IEnumerable<Medecin> FindUsingMatricule(string matricule);
+
+        /// <summary>
+        /// Obtient des<see cref="Medecin"/> de la base de données liés a ce matricule et situés dans cette ville
+        /// </summary>
+        /// <param name="villeid">Identifiant de la ville</param>
+        /// <param name="matricule">Matricule du visiteur responsable</param>
+        /// <returns></returns>
+        IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule);
+
+        /// <summary>
+        /// Obtient des<see cref="Medecin"/> de la base de données situés dans cette ville
+        /// </summary>
+        /// <param name="villeid">Identifiant de la ville</param>
+        /// <returns></returns>
+        IEnumerable<Medecin> GetAllUsingVille(int villeid);
         /// <summary>
         /// Fonction d'ajout à la base de donnée d'un objet <see cref="Medecin"/>
         /// </summary>

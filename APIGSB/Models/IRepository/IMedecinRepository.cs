@@ -30,11 +30,19 @@ namespace APIGSB.Models.IRepository
         IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule);
 
         /// <summary>
+        /// Obtient des <see cref="Medecin"/> de la base de données ayant ce mot clé en partie dans leur nom
+        /// </summary>
+        /// <param name="keyword">Mot clé recherché</param>
+        /// <returns></returns>
+	    IEnumerable<Medecin> FindByNameUsingKeyword(string keyword);
+
+        /// <summary>
         /// Obtient des<see cref="Medecin"/> de la base de données situés dans cette ville
         /// </summary>
         /// <param name="villeid">Identifiant de la ville</param>
         /// <returns></returns>
         IEnumerable<Medecin> GetAllUsingVille(int villeid);
+
         /// <summary>
         /// Fonction d'ajout à la base de donnée d'un objet <see cref="Medecin"/>
         /// </summary>

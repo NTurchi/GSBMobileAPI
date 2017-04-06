@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using APIGSB.Models;
 using APIGSB.Models.DTO;
 using APIGSB.Models.IRepository;
@@ -18,13 +19,20 @@ namespace APIGSB.Controllers
 		/// <value>L'interface du repository des médicaments</value>
 		private IMedicamentRepository _medicamentRepository;
 
-		/// <summary>
-		/// Initialise une nouvelle instance de <see cref="MedicamentController"/>
-		/// </summary>
-		/// <param name="medicaments">Le repository attaché à l'entité <see cref="Medicament"/></param>
-        public MedicamentController(IMedicamentRepository medicaments)
+        /// <summary>
+        /// Interface du repertoire de requêtes des <see cref="Medicament"/>
+        /// </summary>
+        /// <value>L'interface du repository des médicaments</value>
+        private IMedicamentExcipientRepository _medicamentExcipientRepository;
+
+        /// <summary>
+        /// Initialise une nouvelle instance de <see cref="MedicamentController"/>
+        /// </summary>
+        /// <param name="medicaments">Le repository attaché à l'entité <see cref="Medicament"/></param>
+        public MedicamentController(IMedicamentRepository medicaments, IMedicamentExcipientRepository medicamentExcipient)
         {
             _medicamentRepository = medicaments;
+            _medicamentExcipientRepository = medicamentExcipient;
         }
 
 		/// <summary>
@@ -71,11 +79,21 @@ namespace APIGSB.Controllers
 		[HttpPost]
 		public IActionResult Create([FromBody] DTOMedicament dtoMedicament)
 		{
+		    //List<MedicamentExcipient> excipients = new List<MedicamentExcipient>();
+		    //List<MedicamentPathologie> pathologies = new List<MedicamentPathologie>();
 			if (dtoMedicament == null)
 			{
 				return BadRequest();
 			}
-			Medicament medicament = new Medicament()
+
+
+            //foreach (MedicamentPathologie pathologie in dtoMedicament.MedicamentPathologies)
+            //{
+            //    pathologies.Add(pathologie);
+            //}
+
+            dtoMedicament.Famille.Medicaments = null;
+            Medicament medicament = new Medicament()
 			{
 				Nom = dtoMedicament.Nom,
 				Status = dtoMedicament.Status,
@@ -88,9 +106,21 @@ namespace APIGSB.Controllers
 				Administration = dtoMedicament.Administration,
 				ImgUrl = dtoMedicament.ImgUrl,
 				Famille = dtoMedicament.Famille
-			};
+                };
 
-			_medicamentRepository.Add(medicament);
+            _medicamentRepository.Add(medicament);
+		    var medicamentSaved = _medicamentRepository.GetByName(medicament.Nom);
+            foreach (MedicamentExcipient excipient in dtoMedicament.MedicamentExcipients)
+            {
+
+                _medicamentExcipientRepository.Add(new MedicamentExcipient()
+                {
+                    Excipient = excipient.Excipient,
+                    Medicament = medicamentSaved
+                });
+                
+            }
+            //var a = medicament;
 			return new CreatedAtRouteResult("GetMedicament", new { id = _medicamentRepository.GetByName(medicament.Nom).Id });
 		}
 

@@ -97,12 +97,23 @@ namespace APIGSB.Models.Repository
                 .Include(m=>m.Ville)
                 .FirstOrDefault(t => t.Id == id);
 		}
-
-		/// <summary>
-		/// Voir <see cref="IMedecinRepository"/>
-		/// </summary>
-		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
-		public void Remove(int id)
+        /// <summary>
+        /// voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <param name="keyword">Voir <see cref="IMedecinRepository"/></param>
+        /// <returns></returns>
+	    public IEnumerable<Medecin> FindByNameUsingKeyword(string keyword)
+	    {
+	        return _context
+	            .Medecin
+	            .Include(m => m.Ville)
+	            .Where(m => m.Nom.ToLower().Contains(keyword.ToLower()));
+	    }
+        /// <summary>
+        /// Voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <returns>Voir <see cref="IMedecinRepository"/></returns>
+        public void Remove(int id)
 		{
 			var entity = _context.Medecin.First(t => t.Id == id);
 			_context.Medecin.Remove(entity);

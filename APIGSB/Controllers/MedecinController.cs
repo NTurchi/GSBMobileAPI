@@ -146,6 +146,17 @@ namespace APIGSB.Controllers
         }
 
         /// <summary>
+		/// Envoie des <see cref="Medecin"/> de la base de données ayant le mot clé en partie dans leur nom de famille
+		/// <param name="keyword">Mot clé de la recherche</param>
+		/// </summary>
+		/// <returns>Les médecins de la base de données correspondants à ces critères</returns>
+		[HttpGet("keyword/{keyword}")]
+        public IEnumerable<Medecin> FindByNameUsingKeyword(string keyword)
+        {
+            return _medecinRepository.FindByNameUsingKeyword(keyword);
+        }
+
+        /// <summary>
 		/// Envoie des <see cref="Medecin"/> de la base de données situés dans cette ville
 		/// <param name="villeid">Identifiant de la ville</param>
 		/// </summary>

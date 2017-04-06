@@ -68,17 +68,5 @@ namespace APIGSBAPIGSB.Models.DTO
 		/// </summary>
 		/// <value>La ville</value>
 		public Ville Ville { get; set; }
-
-		#region clés étrangères
-
-		public string VisiteurMatricule { get; set; }
-
-		/// <summary>
-		/// L'objet <see cref="Visiteur">Visiteur</see> du médecin
-		/// </summary>
-		/// <value>La famille du médicament</value>
-		public Visiteur Visiteur { get; set; }
-
-		#endregion clés étrangères
 	}
 }

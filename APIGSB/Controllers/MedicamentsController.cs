@@ -105,7 +105,7 @@ namespace APIGSB.Controllers
 
             _medicamentRepository.Add(medicament);
 		    
-			return new CreatedAtRouteResult("GetMedicament", new { id = _medicamentRepository.GetByName(medicament.Nom).Id });
+			return new CreatedAtRouteResult("GetMedicament", _medicamentRepository.GetByName(medicament.Nom));
 		}
 
 		/// <summary>

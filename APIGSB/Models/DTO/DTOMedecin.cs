@@ -28,6 +28,12 @@ namespace APIGSBAPIGSB.Models.DTO
 		public int CodePostal { get; set; }
 
 		/// <summary>
+		/// Addresse du médecin
+		/// </summary>
+		/// <value>The addresse.</value>
+		public string Addresse { get; set;}
+
+		/// <summary>
 		/// Url d'une photo du Médecin
 		/// </summary>
 		/// <value>URL dirigeant vers la photo du médecin</value>

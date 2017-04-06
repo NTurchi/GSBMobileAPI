@@ -80,12 +80,15 @@ namespace APIGSB.Controllers
 			{
 				Nom = dtoMedecin.Nom,
 				Prenom = dtoMedecin.Prenom,
+				Adresse = dtoMedecin.Addresse,
+				HoraireVisite = dtoMedecin.HoraireVisite,
+				Email = dtoMedecin.Email,
+				Telephone = dtoMedecin.Telephone,
 				CodePostal = dtoMedecin.CodePostal,
 				ImgUrl = dtoMedecin.ImgUrl,
 				Latitude = dtoMedecin.Latitude,
 				Longitude = dtoMedecin.Longitude,
 				Ville = dtoMedecin.Ville
-				
 			};
 
 			_medecinRepository.Add(medecin);

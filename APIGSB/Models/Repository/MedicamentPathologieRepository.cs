@@ -54,7 +54,8 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentPathologieRepository"/></returns>
 		public void Remove(MedicamentPathologie medicamentPathologie)
 		{
-			_context.MedicamentPathologie.Remove(medicamentPathologie);
+			MedicamentPathologie temp = _context.MedicamentPathologie.FirstOrDefault(mp => mp.MedicamentId == medicamentPathologie.MedicamentId && mp.PathologieId == medicamentPathologie.PathologieId);
+			_context.MedicamentPathologie.Remove(temp);
 			_context.SaveChanges();
 		}
 

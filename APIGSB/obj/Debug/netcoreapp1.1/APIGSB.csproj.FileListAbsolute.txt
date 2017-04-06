@@ -1,0 +1,9 @@
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/bin/Debug/netcoreapp1.1/APIGSB.deps.json
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/bin/Debug/netcoreapp1.1/APIGSB.runtimeconfig.json
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/bin/Debug/netcoreapp1.1/APIGSB.runtimeconfig.dev.json
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/bin/Debug/netcoreapp1.1/APIGSB.dll
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/bin/Debug/netcoreapp1.1/APIGSB.pdb
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/obj/Debug/netcoreapp1.1/APIGSB.csprojResolveAssemblyReference.cache
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/obj/Debug/netcoreapp1.1/APIGSB.AssemblyInfo.cs
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/obj/Debug/netcoreapp1.1/APIGSB.dll
+/Users/Nico/Documents/EPSI/BTS/PPE/PPE 4 - Application mobile de consultation/APIGSB/APIGSB/obj/Debug/netcoreapp1.1/APIGSB.pdb

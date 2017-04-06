@@ -33,7 +33,7 @@ namespace APIGSB.Models.Repository
         public IEnumerable<Medicament> GetAll()
         {
             return _context.Medicament
-                           .Include(m => m.Famille)
+				           .Include(m => m.Famille).AsNoTracking()
                            .Include(m => m.MedicamentPathologies)
                                    .ThenInclude(mp => mp.Pathologie)
                            .Include(m => m.MedicamentExcipients)
@@ -63,6 +63,27 @@ namespace APIGSB.Models.Repository
         /// <returns>Voir <see cref="IMedicamentRepository"/></returns>
         public void Add(Medicament medicament)
 		{
+			for (int i = 0; i < medicament.MedicamentExcipients.Count(); i++)
+			{
+				int eId = medicament.MedicamentExcipients.ToList()[i].ExcipientId;
+				medicament.MedicamentExcipients.ToList()[i] = new MedicamentExcipient()
+				{
+					Medicament = medicament,
+					Excipient = _context.Excipient.Single(e => e.Id == eId)
+				};
+			}
+
+			for (int i = 0; i < medicament.MedicamentPathologies.Count(); i++)
+			{
+				int pId = medicament.MedicamentPathologies.ToList()[i].PathologieId;
+				medicament.MedicamentPathologies.ToList()[i] = new MedicamentPathologie()
+				{
+					Medicament = medicament,
+					Pathologie = _context.Pathologie.Single(p => p.Id == pId)
+				};
+			}
+			
+			medicament.Famille = _context.Famille.Single(f => f.Id == medicament.Famille.Id);
 			_context.Medicament.Add(medicament);
 			_context.SaveChanges();
 		}
@@ -98,6 +119,27 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
         public void Update(Medicament medicament)
         {
+			for (int i = 0; i < medicament.MedicamentExcipients.Count(); i++)
+			{
+				int eId = medicament.MedicamentExcipients.ToList()[i].ExcipientId;
+				medicament.MedicamentExcipients.ToList()[i] = new MedicamentExcipient()
+				{
+					Medicament = medicament,
+					Excipient = _context.Excipient.Single(e => e.Id == eId)
+				};
+			}
+
+			for (int i = 0; i < medicament.MedicamentPathologies.Count(); i++)
+			{
+				int pId = medicament.MedicamentPathologies.ToList()[i].PathologieId;
+				medicament.MedicamentPathologies.ToList()[i] = new MedicamentPathologie()
+				{
+					Medicament = medicament,
+					Pathologie = _context.Pathologie.Single(p => p.Id == pId)
+				};
+			}
+
+			medicament.Famille = _context.Famille.Find(medicament.Famille.Id);
             _context.Medicament.Update(medicament);
             _context.SaveChanges();
         }

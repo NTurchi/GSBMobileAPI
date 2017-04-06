@@ -46,9 +46,39 @@ namespace APIGSBAPIGSB.Models.DTO
 		public double Longitude { get; set; }
 
 		/// <summary>
+		/// Numéro de telephone du médecin
+		/// </summary>
+		/// <value>Le numéro de téléphone</value>
+		public string Telephone { get; set; }
+
+		/// <summary>
+		/// Adresse email du médecin
+		/// </summary>
+		/// <value>L'adresse email</value>
+		public string Email { get; set; }
+
+		/// <summary>
+		/// Horaires préférées pour les visites
+		/// </summary>
+		/// <value>Les préférences horaires pour la visite</value>
+		public string HoraireVisite { get; set; }
+
+		/// <summary>
 		/// Ville où habite le médecin
 		/// </summary>
 		/// <value>La ville</value>
 		public Ville Ville { get; set; }
+
+		#region clés étrangères
+
+		public string VisiteurMatricule { get; set; }
+
+		/// <summary>
+		/// L'objet <see cref="Visiteur">Visiteur</see> du médecin
+		/// </summary>
+		/// <value>La famille du médicament</value>
+		public Visiteur Visiteur { get; set; }
+
+		#endregion clés étrangères
 	}
 }

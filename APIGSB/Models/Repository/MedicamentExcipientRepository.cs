@@ -61,6 +61,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentExcipientRepository"/></returns>
 		public void Remove(MedicamentExcipient medicamentExcipient)
 		{
+			MedicamentExcipient temp = _context.MedicamentExcipient.FirstOrDefault(me => me.ExcipientId == medicamentExcipient.ExcipientId && me.MedicamentId == medicamentExcipient.ExcipientId);
 			_context.MedicamentExcipient.Remove(medicamentExcipient);
 			_context.SaveChanges();
 		}

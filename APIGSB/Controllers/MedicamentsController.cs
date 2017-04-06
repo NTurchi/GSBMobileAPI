@@ -20,19 +20,12 @@ namespace APIGSB.Controllers
 		private IMedicamentRepository _medicamentRepository;
 
         /// <summary>
-        /// Interface du repertoire de requêtes des <see cref="Medicament"/>
-        /// </summary>
-        /// <value>L'interface du repository des médicaments</value>
-        private IMedicamentExcipientRepository _medicamentExcipientRepository;
-
-        /// <summary>
         /// Initialise une nouvelle instance de <see cref="MedicamentController"/>
         /// </summary>
         /// <param name="medicaments">Le repository attaché à l'entité <see cref="Medicament"/></param>
-        public MedicamentController(IMedicamentRepository medicaments, IMedicamentExcipientRepository medicamentExcipient)
+		public MedicamentController(IMedicamentRepository medicaments, IMedicamentExcipientRepository medicamentExcipient, IMedicamentPathologieRepository medicamentPathologie)
         {
             _medicamentRepository = medicaments;
-            _medicamentExcipientRepository = medicamentExcipient;
         }
 
 		/// <summary>
@@ -93,7 +86,7 @@ namespace APIGSB.Controllers
             //}
 
             dtoMedicament.Famille.Medicaments = null;
-            Medicament medicament = new Medicament()
+			Medicament medicament = new Medicament()
 			{
 				Nom = dtoMedicament.Nom,
 				Status = dtoMedicament.Status,
@@ -105,22 +98,13 @@ namespace APIGSB.Controllers
 				Indications = dtoMedicament.Indications,
 				Administration = dtoMedicament.Administration,
 				ImgUrl = dtoMedicament.ImgUrl,
-				Famille = dtoMedicament.Famille
-                };
+				Famille = dtoMedicament.Famille,
+				MedicamentExcipients = dtoMedicament.MedicamentExcipients,
+				MedicamentPathologies = dtoMedicament.MedicamentPathologies
+            };
 
             _medicamentRepository.Add(medicament);
-		    var medicamentSaved = _medicamentRepository.GetByName(medicament.Nom);
-            foreach (MedicamentExcipient excipient in dtoMedicament.MedicamentExcipients)
-            {
-
-                _medicamentExcipientRepository.Add(new MedicamentExcipient()
-                {
-                    Excipient = excipient.Excipient,
-                    Medicament = medicamentSaved
-                });
-                
-            }
-            //var a = medicament;
+		    
 			return new CreatedAtRouteResult("GetMedicament", new { id = _medicamentRepository.GetByName(medicament.Nom).Id });
 		}
 
@@ -138,13 +122,28 @@ namespace APIGSB.Controllers
                 return BadRequest();
             }
             var med = _medicamentRepository.Find(id);
+
             if (med == null)
             {
                 return NotFound();
             }
-            med.Nom = medicament.Nom;
-            med.Id = medicament.Id;
-            _medicamentRepository.Update(med);
+
+			med.Nom = medicament.Nom;
+			med.Status = medicament.Status;
+			med.Stock = medicament.Stock;
+			med.Principe = medicament.Principe;
+			med.Commande = medicament.Commande;
+			med.Quantite = medicament.Quantite;
+			med.Prix = medicament.Prix;
+			med.TauxRemboursement = medicament.TauxRemboursement;
+			med.Indications = medicament.Indications;
+			med.Administration = medicament.Administration;
+			med.ImgUrl = medicament.ImgUrl;
+			med.Famille = medicament.Famille;
+			med.MedicamentExcipients = medicament.MedicamentExcipients;
+			med.MedicamentPathologies = medicament.MedicamentPathologies;
+
+			_medicamentRepository.Update(med);
             return new NoContentResult();
         }
 
@@ -162,7 +161,8 @@ namespace APIGSB.Controllers
                 return NotFound();
             }
             _medicamentRepository.Remove(id);
-            return new NoContentResult();
+
+			return new NoContentResult();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace APIGSB.Models
 		/// Identifiant primaire de l'objet Famille
 		/// </summary>
 		/// <value>L'identifiant</value>
-        public int Id { get; set; }
+		public int Id { get; set; }
 
 		/// <summary>
 		/// Nom de la famille de médicaments

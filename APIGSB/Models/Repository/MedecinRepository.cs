@@ -82,6 +82,7 @@ namespace APIGSB.Models.Repository
         /// <returns>Voir <see cref="IMedecinRepository"/></returns>
         public void Add(Medecin medecin)
 		{
+			medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
 			_context.Medecin.Add(medecin);
 			_context.SaveChanges();
 		}
@@ -126,6 +127,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public void Update(Medecin medecin)
 		{
+			medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
 			_context.Medecin.Update(medecin);
 			_context.SaveChanges();
 		}

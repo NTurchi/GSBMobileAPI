@@ -110,8 +110,20 @@ namespace APIGSB.Controllers
 			{
 				return NotFound();
 			}
-			med.Nom = medecin.Nom;
+
 			med.Id = medecin.Id;
+			med.Nom = medecin.Nom;
+			med.Prenom = medecin.Prenom;
+			med.Telephone = medecin.Telephone;
+			med.Email = medecin.Email;
+			med.Adresse = medecin.Adresse;
+			med.CodePostal = medecin.CodePostal;
+			med.HoraireVisite = medecin.HoraireVisite;
+			med.Latitude = medecin.Latitude;
+			med.Longitude = medecin.Longitude;
+			med.Ville = medecin.Ville;
+			med.ImgUrl = medecin.ImgUrl;
+
 			_medecinRepository.Update(med);
 			return new NoContentResult();
 		}

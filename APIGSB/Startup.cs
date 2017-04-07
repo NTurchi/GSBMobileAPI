@@ -60,6 +60,7 @@ namespace APIGSB
 			services.AddScoped<IExcipientRepository, ExcipientRepository>();
 			services.AddScoped<IMedicamentExcipientRepository, MedicamentExcipientRepository>();
 			services.AddScoped<IMedicamentPathologieRepository, MedicamentPathologieRepository>();
+			services.AddScoped<IVisiteurRepository, VisiteurRepository>();
 
 		}
 

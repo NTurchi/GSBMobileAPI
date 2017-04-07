@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using APIGSB.Models;
 
-namespace APIGSB
+namespace APIGSB.Models.IRepository
 {
 	/// <summary>
 	/// Interface du repository de l'objet <see cref="Ville"/>

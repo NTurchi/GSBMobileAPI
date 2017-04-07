@@ -96,6 +96,7 @@ namespace APIGSB.Models.Repository
 			return _context
                 .Medecin
                 .Include(m=>m.Ville)
+				.Include(v=>v.Visiteur)
                 .FirstOrDefault(t => t.Id == id);
 		}
         /// <summary>

@@ -89,6 +89,8 @@ namespace APIGSB.Models
         /// <value>La famille du médicament</value>
         public Visiteur Visiteur { get; set; }
 
+		public int VisiteurId { get; set; }
+
         #endregion clés étrangères
 
     }

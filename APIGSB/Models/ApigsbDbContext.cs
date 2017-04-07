@@ -93,26 +93,26 @@ namespace APIGSB.Models
 		/// Définitions des relations entre certaines entités
 		/// </summary>
 		/// <param name="modelBuilder">Model de construction des relations</param>
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
 			#region Medicament Pathologie Clefs Etrangères (Many To Many)
 
 			// Définition de la clef primaire composé de l'entité
 			modelBuilder.Entity<MedicamentPathologie>()
-			            .HasKey(mc => new { mc.MedicamentId, mc.PathologieId });
-			
+						.HasKey(mc => new { mc.MedicamentId, mc.PathologieId });
+
 			// Mise en place de la relation de clef étrangère avec l'entité Médicament
 			modelBuilder.Entity<MedicamentPathologie>()
-			            .HasOne(mc => mc.Medicament)
-			            .WithMany(m => m.MedicamentPathologies)
-			            .HasForeignKey(mc => mc.MedicamentId);
-			
+						.HasOne(mc => mc.Medicament)
+						.WithMany(m => m.MedicamentPathologies)
+						.HasForeignKey(mc => mc.MedicamentId);
+
 			// Mise en place de la relation de clef étrangère avec l'entité Pathologie
 			modelBuilder.Entity<MedicamentPathologie>()
-			            .HasOne(mc => mc.Pathologie)
-			            .WithMany(p => p.MedicamentPathologies)
-			            .HasForeignKey(mc => mc.PathologieId);
-			
+						.HasOne(mc => mc.Pathologie)
+						.WithMany(p => p.MedicamentPathologies)
+						.HasForeignKey(mc => mc.PathologieId);
+
 			#endregion
 
 			#region Medicament Exciptien Clefs Etrangères (Many To Many)
@@ -129,9 +129,17 @@ namespace APIGSB.Models
 
 			// Mise en place de la relation de clef étrangère avec l'entité Excipient
 			modelBuilder.Entity<MedicamentExcipient>()
-			            .HasOne(mc => mc.Excipient)
+						.HasOne(mc => mc.Excipient)
 						.WithMany(p => p.MedicamentExcipients)
 						.HasForeignKey(mc => mc.ExcipientId);
+
+			#endregion
+
+			#region Visiteur Medecin cles etrangere
+
+			modelBuilder.Entity<Visiteur>()
+						.HasMany(v => v.Medecins)
+						.WithOne(m => m.Visiteur);
 
 			#endregion
 		}

@@ -1,10 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using APIGSB.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
-using Newtonsoft.Json;
-using MediaTypeHeaderValue = System.Net.Http.Headers.MediaTypeHeaderValue;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace APIGSB.Controllers
 {

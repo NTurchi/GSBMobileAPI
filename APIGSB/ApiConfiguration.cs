@@ -1,5 +1,4 @@
-﻿using System;
-namespace APIGSB
+﻿namespace APIGSB
 {
 	/// <summary>
 	/// Classe contenant les constante de l'application tels que l'adresse de la base de données ou la route de base

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using APIGSB.Models.IRepository;
 using Microsoft.EntityFrameworkCore;
@@ -43,7 +42,7 @@ namespace APIGSB.Models.Repository
 	    public IEnumerable<Medecin> FindUsingMatricule(string matricule)
 	    {
             return  _context.Medecin
-                .Where(m => m.VisiteurMatricule.ToLower() == matricule.ToLower())
+                .Where(m => m.Visiteur.Matricule.ToLower() == matricule.ToLower())
                 .Select(m => new Medecin
                 {
                     Nom = m.Nom,
@@ -63,7 +62,7 @@ namespace APIGSB.Models.Repository
             var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
             return _context.Medecin
                 .Where(m => m.Ville == ville)
-                .Where(m => m.VisiteurMatricule == matricule);
+                .Where(m => m.Visiteur.Matricule == matricule);
 	    }
         /// <summary>
         /// Voir <see cref="IMedecinRepository"/>

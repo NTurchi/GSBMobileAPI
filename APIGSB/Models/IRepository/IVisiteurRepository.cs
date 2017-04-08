@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using APIGSB.Models;
+﻿using System.Collections.Generic;
 
 namespace APIGSB.Models.IRepository
 {

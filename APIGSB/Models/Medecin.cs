@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace APIGSB.Models
+﻿namespace APIGSB.Models
 {
 	/// <summary>
 	/// Classe correspondant à un Médecin
@@ -80,16 +77,13 @@ namespace APIGSB.Models
         #endregion property
 
         #region clés étrangères
-
-        public string VisiteurMatricule { get; set; }
-
+        
         /// <summary>
         /// L'objet <see cref="Visiteur">Visiteur</see> du médecin
         /// </summary>
         /// <value>La famille du médicament</value>
         public Visiteur Visiteur { get; set; }
-
-		public int VisiteurId { get; set; }
+        
 
         #endregion clés étrangères
 

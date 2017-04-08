@@ -1,5 +1,4 @@
-﻿using System;
-namespace APIGSB.Models.DTO
+﻿namespace APIGSB.Models.DTO
 {
 	/// <summary>
 	/// DTO (Data Transfert Object) Objet qui va être envoyé lors d'une requête de type "POST" d'un client.

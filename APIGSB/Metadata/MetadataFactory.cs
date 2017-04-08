@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-
-namespace APIGSB.Metadata
+﻿namespace APIGSB.Metadata
 {
 	/// <summary>
 	/// Classe qui nous permettra de crée des collections de <see cref="Metadata">métadonnées</see> selon l'entité choisie.

@@ -1,5 +1,4 @@
-﻿using System;
-using APIGSB.Models.IRepository;
+﻿using APIGSB.Models.IRepository;
 using APIGSB.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +41,7 @@ namespace APIGSB
         /// <returns></returns>
 	    public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
 	    {
-	        return from medecin in _context.Medecin.Where(m => m.VisiteurMatricule == matricule)
+	        return from medecin in _context.Medecin.Where(m => m.Visiteur.Matricule == matricule)
                    select medecin.Ville;
 	    }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using APIGSB.Models;
 using APIGSB.Models.IRepository;
 using Microsoft.AspNetCore.Mvc;

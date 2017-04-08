@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using APIGSB.Models.IRepository;
 
 namespace APIGSB.Models.Repository
@@ -27,7 +25,7 @@ namespace APIGSB.Models.Repository
         }
         public IEnumerable<string> GetAll()
         {
-            return _context.Medecin.Select(m => m.VisiteurMatricule).Distinct().AsEnumerable();
+            return _context.Visiteur.Select(v => v.Matricule).Distinct().AsEnumerable();
         }
     }
 }

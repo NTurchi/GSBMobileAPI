@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using APIGSB.Models.IRepository;
-using Microsoft.EntityFrameworkCore;
 
 namespace APIGSB.Models.Repository
 {

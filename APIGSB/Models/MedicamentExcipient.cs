@@ -1,5 +1,4 @@
-﻿using System;
-namespace APIGSB.Models
+﻿namespace APIGSB.Models
 {
 	/// <summary>
 	/// Classe permettant le gestion de la liasion "Many To Many" entre un <see cref="Medicament"/> et ses <see cref="Excipient" />

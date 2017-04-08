@@ -1,5 +1,4 @@
-﻿using System;
-using APIGSB.Models;
+﻿using APIGSB.Models;
 
 namespace APIGSBAPIGSB.Models.DTO
 {
@@ -28,10 +27,10 @@ namespace APIGSBAPIGSB.Models.DTO
 		public int CodePostal { get; set; }
 
 		/// <summary>
-		/// Addresse du médecin
+		/// Adresse du médecin
 		/// </summary>
-		/// <value>The addresse.</value>
-		public string Addresse { get; set;}
+		/// <value>L'adresse.</value>
+		public string Adresse { get; set;}
 
 		/// <summary>
 		/// Url d'une photo du Médecin

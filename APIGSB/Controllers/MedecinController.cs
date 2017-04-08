@@ -80,7 +80,7 @@ namespace APIGSB.Controllers
 			{
 				Nom = dtoMedecin.Nom,
 				Prenom = dtoMedecin.Prenom,
-				Adresse = dtoMedecin.Addresse,
+				Adresse = dtoMedecin.Adresse,
 				HoraireVisite = dtoMedecin.HoraireVisite,
 				Email = dtoMedecin.Email,
 				Telephone = dtoMedecin.Telephone,

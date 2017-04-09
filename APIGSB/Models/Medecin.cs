@@ -5,12 +5,12 @@
 	/// </summary>
 	public class Medecin
 	{
-        #region property
-        /// <summary>
-        /// Identifiant primaire de l'objet Médecin
-        /// </summary>
-        /// <value>L'identifiant</value>
-        public int Id { get; set; }
+	        #region property
+	        /// <summary>
+	        /// Identifiant primaire de l'objet Médecin
+	        /// </summary>
+	        /// <value>L'identifiant</value>
+	        public int Id { get; set; }
 
 		/// <summary>
 		/// Nom du Médecin
@@ -48,44 +48,48 @@
 		/// <value>Longitude</value>
 		public double Longitude { get; set; }
 
-        /// <summary>
-        /// Adresse postal du médecin pour pouvoir accéder à son cabinet
-        /// <value>Adresse</value>
-        /// </summary>
-        public string Adresse { get; set; }
+	        /// <summary>
+	        /// Adresse postal du médecin pour pouvoir accéder à son cabinet
+	        /// <value>Adresse</value>
+	        /// </summary>
+	        public string Adresse { get; set; }
+
 		/// <summary>
 		/// Ville où habite le médecin
 		/// </summary>
 		/// <value>La ville</value>
 		public Ville Ville { get; set; }
-        /// <summary>
-        /// Numéro de telephone du médecin
-        /// </summary>
-        /// <value>Le numéro de téléphone</value>
-	    public string Telephone { get; set; }
-        /// <summary>
-        /// Adresse email du médecin
-        /// </summary>
-        /// <value>L'adresse email</value>
-        public string Email { get; set; }
-        /// <summary>
-        /// Horaires préférées pour les visites
-        /// </summary>
-        /// <value>Les préférences horaires pour la visite</value>
-        public string HoraireVisite { get; set; }
 
-        #endregion property
-
-        #region clés étrangères
+	        /// <summary>
+	        /// Numéro de telephone du médecin
+	        /// </summary>
+	        /// <value>Le numéro de téléphone</value>
+		public string Telephone { get; set; }
         
-        /// <summary>
-        /// L'objet <see cref="Visiteur">Visiteur</see> du médecin
-        /// </summary>
-        /// <value>La famille du médicament</value>
-        public Visiteur Visiteur { get; set; }
-        
+		/// <summary>
+	        /// Adresse email du médecin
+	        /// </summary>
+	        /// <value>L'adresse email</value>
+	        public string Email { get; set; }
 
-        #endregion clés étrangères
+	        /// <summary>
+	        /// Horaires préférées pour les visites
+	        /// </summary>
+	        /// <value>Les préférences horaires pour la visite</value>
+	        public string HoraireVisite { get; set; }
+
+	        #endregion property
+
+	        #region clés étrangères
+	        
+	        /// <summary>
+	        /// L'objet <see cref="Visiteur">Visiteur</see> du médecin
+	        /// </summary>
+	        /// <value>La famille du médicament</value>
+	        public Visiteur Visiteur { get; set; }
+	        
+
+	        #endregion clés étrangères
 
     }
 }

@@ -32,25 +32,4 @@
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.2\System.Web.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Migrations\20170221210823_InitialCreate.cs" />
-    <Compile Remove="Migrations\20170221203155_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20170320120540_Create.Designer.cs" />
-    <Compile Remove="Migrations\20170320120540_Create.cs" />
-    <Compile Remove="Migrations\20170228105202_testmga.Designer.cs" />
-    <Compile Remove="Migrations\20170228105202_testmga.cs" />
-    <Compile Remove="Migrations\20170228105101_testmg.Designer.cs" />
-    <Compile Remove="Migrations\20170228105101_testmg.cs" />
-    <Compile Remove="Migrations\20170221210823_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20170221203155_InitialCreate.cs" />
-    <Compile Remove="Migrations\20170221202303_SecondModel.Designer.cs" />
-    <Compile Remove="Migrations\20170221202303_SecondModel.cs" />
-    <Compile Remove="Migrations\20170220211056_MapForeignKey.Designer.cs" />
-    <Compile Remove="Migrations\20170220211056_MapForeignKey.cs" />
-    <Compile Remove="Migrations\20170220195856_AddForeignKey.Designer.cs" />
-    <Compile Remove="Migrations\20170220195856_AddForeignKey.cs" />
-    <Compile Remove="Migrations\20170219134129_InitialCreate.Designer.cs" />
-    <Compile Remove="Migrations\20170219134129_InitialCreate.cs" />
-  </ItemGroup>
 </Project>

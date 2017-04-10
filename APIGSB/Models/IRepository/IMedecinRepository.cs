@@ -13,39 +13,52 @@ namespace APIGSB.Models.IRepository
 		/// <returns>Une collection de médecin implémentant l'interface IEnumerable</returns>
 		IEnumerable<Medecin> GetAll();
 
-        /// <summary>
-        /// Obtiens tous les <see cref="Medecin"/> reliés au matricule
-        /// </summary>
-        /// <returns>Liste de <see cref="Medecin"/></returns>
-        IEnumerable<Medecin> FindUsingMatricule(string matricule);
+	        /// <summary>
+	        /// Obtiens tous les <see cref="Medecin"/> reliés au matricule
+	        /// </summary>
+	        /// <returns>Liste de <see cref="Medecin"/></returns>
+	        IEnumerable<Medecin> FindUsingMatricule(string matricule);
 
-        /// <summary>
-        /// Obtient des<see cref="Medecin"/> de la base de données liés a ce matricule et situés dans cette ville
-        /// </summary>
-        /// <param name="villeid">Identifiant de la ville</param>
-        /// <param name="matricule">Matricule du visiteur responsable</param>
-        /// <returns></returns>
-        IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule);
+	        /// <summary>
+	        /// Obtient des<see cref="Medecin"/> de la base de données liés a ce matricule et situés dans cette ville
+	        /// </summary>
+	        /// <param name="villeid">Identifiant de la ville</param>
+	        /// <param name="matricule">Matricule du visiteur responsable</param>
+	        /// <returns></returns>
+	        IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule);
 
-        /// <summary>
-        /// Obtient des <see cref="Medecin"/> de la base de données ayant ce mot clé en partie dans leur nom
-        /// </summary>
-        /// <param name="keyword">Mot clé recherché</param>
-        /// <returns></returns>
-	    IEnumerable<Medecin> FindByNameUsingKeyword(string keyword);
+	        /// <summary>
+	        /// Obtient des <see cref="Medecin"/> de la base de données ayant ce mot clé en partie dans leur nom
+	        /// </summary>
+	        /// <param name="keyword">Mot clé recherché</param>
+	        /// <returns></returns>
+		IEnumerable<Medecin> FindByNameUsingKeyword(string keyword);
 
-        /// <summary>
-        /// Obtient des<see cref="Medecin"/> de la base de données situés dans cette ville
-        /// </summary>
-        /// <param name="villeid">Identifiant de la ville</param>
-        /// <returns></returns>
-        IEnumerable<Medecin> GetAllUsingVille(int villeid);
+	        /// <summary>
+	        /// Obtient des<see cref="Medecin"/> de la base de données situés dans cette ville
+	        /// </summary>
+	        /// <param name="villeid">Identifiant de la ville</param>
+	        /// <returns></returns>
+	        IEnumerable<Medecin> GetAllUsingVille(int villeid);
 
-        /// <summary>
-        /// Fonction d'ajout à la base de donnée d'un objet <see cref="Medecin"/>
-        /// </summary>
-        /// <param name="medecin">Le nouveau médecin à ajouter</param>
-        void Add(Medecin medecin);
+		/// <summary>
+		/// Désassigne des médecins et à un <see cref="Visiteur"/>
+		/// </summary>
+		/// <param name="medecins">La liste des médecins qui n'ont plus de <see cref="Visiteur"/> assigné</param>
+		void SetMatriculeToNull(ICollection<Medecin> medecins);
+
+		/// <summary>
+		/// Assigne plusieurs médecins à 1 visiteur
+		/// </summary>
+		/// <param name="medecins">Les médecins</param>
+		/// <param name="idVisiteur">l'id du <see cref="Visiteur"/> à assigner au médecin</param>
+		void SetMatricule(ICollection<Medecin> medecins, int idVisiteur);
+	
+	        /// <summary>
+	        /// Fonction d'ajout à la base de donnée d'un objet <see cref="Medecin"/>
+	        /// </summary>
+	        /// <param name="medecin">Le nouveau médecin à ajouter</param>
+	        void Add(Medecin medecin);
 
 		/// <summary>
 		/// Cherche un <see cref="Medecin"/>en particulier dans la base de données à partir de son identifiant primaire

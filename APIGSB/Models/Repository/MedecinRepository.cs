@@ -34,52 +34,53 @@ namespace APIGSB.Models.Repository
 		{
 			return _context.Medecin.ToList();
 		}
-        /// <summary>
-        /// Voir <see cref="IMedecinRepository"/>
-        /// </summary>
-        /// <param name="matricule">Voir <see cref="IMedecinRepository"/></param>
-        /// <returns>Liste de médecins</returns>
-	    public IEnumerable<Medecin> FindUsingMatricule(string matricule)
-	    {
-            return  _context.Medecin
-                .Where(m => m.Visiteur.Matricule.ToLower() == matricule.ToLower())
-                .Select(m => new Medecin
-                {
-                    Nom = m.Nom,
-                    Id = m.Id,
-                    Prenom = m.Prenom
-                })
-                .ToList();
-	    }
-        /// <summary>
-        /// Voir <see cref="IMedecinRepository"/>
-        /// </summary>
-        /// <param name="villeid">Voir <see cref="IMedecinRepository"/></param>
-        /// <param name="matricule">Voir <see cref="IMedecinRepository"/></param>
-        /// <returns>Voir Interface</returns>
-	    public IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule)
-        {
-            var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
-            return _context.Medecin
-                .Where(m => m.Ville == ville)
-                .Where(m => m.Visiteur.Matricule == matricule);
-	    }
-        /// <summary>
-        /// Voir <see cref="IMedecinRepository"/>
-        /// </summary>
-        /// <param name="villeid">Voir <see cref="IMedecinRepository"/></param>
-        /// <returns>Voir Interface</returns>
-	    public IEnumerable<Medecin> GetAllUsingVille(int villeid)
-        {
-            var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
-            return _context.Medecin
-                .Where(m => m.Ville == ville);
-        }
-        /// <summary>
-        /// Voir <see cref="IMedecinRepository"/>
-        /// </summary>
-        /// <returns>Voir <see cref="IMedecinRepository"/></returns>
-        public void Add(Medecin medecin)
+
+	        /// <summary>
+	        /// Voir <see cref="IMedecinRepository"/>
+	        /// </summary>
+	        /// <param name="matricule">Voir <see cref="IMedecinRepository"/></param>
+	        /// <returns>Liste de médecins</returns>
+		public IEnumerable<Medecin> FindUsingMatricule(string matricule)
+		{
+		return  _context.Medecin
+		.Where(m => m.Visiteur.Matricule.ToLower() == matricule.ToLower())
+		.Select(m => new Medecin
+		{
+		    Nom = m.Nom,
+		    Id = m.Id,
+		    Prenom = m.Prenom
+		})
+		.ToList();
+		}
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		/// <param name="villeid">Voir <see cref="IMedecinRepository"/></param>
+		/// <param name="matricule">Voir <see cref="IMedecinRepository"/></param>
+		/// <returns>Voir Interface</returns>
+		public IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule)
+		{
+		var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
+		return _context.Medecin
+		.Where(m => m.Ville == ville)
+		.Where(m => m.Visiteur.Matricule == matricule);
+		}
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		/// <param name="villeid">Voir <see cref="IMedecinRepository"/></param>
+		/// <returns>Voir Interface</returns>
+		public IEnumerable<Medecin> GetAllUsingVille(int villeid)
+		{
+		var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
+		return _context.Medecin
+		.Where(m => m.Ville == ville);
+		}
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
+		public void Add(Medecin medecin)
 		{
 			medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
 			_context.Medecin.Add(medecin);
@@ -93,28 +94,30 @@ namespace APIGSB.Models.Repository
 		public Medecin Find(int id)
 		{
 			return _context
-                .Medecin
-                .Include(m=>m.Ville)
+		.Medecin
+		.Include(m=>m.Ville)
 				.Include(v=>v.Visiteur)
-                .FirstOrDefault(t => t.Id == id);
+		.FirstOrDefault(t => t.Id == id);
 		}
-        /// <summary>
-        /// voir <see cref="IMedecinRepository"/>
-        /// </summary>
-        /// <param name="keyword">Voir <see cref="IMedecinRepository"/></param>
-        /// <returns></returns>
-	    public IEnumerable<Medecin> FindByNameUsingKeyword(string keyword)
-	    {
-	        return _context
-	            .Medecin
-	            .Include(m => m.Ville)
-	            .Where(m => m.Nom.ToLower().Contains(keyword.ToLower()));
-	    }
-        /// <summary>
-        /// Voir <see cref="IMedecinRepository"/>
-        /// </summary>
-        /// <returns>Voir <see cref="IMedecinRepository"/></returns>
-        public void Remove(int id)
+
+		/// <summary>
+		/// voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		/// <param name="keyword">Voir <see cref="IMedecinRepository"/></param>
+		/// <returns></returns>
+		public IEnumerable<Medecin> FindByNameUsingKeyword(string keyword)
+		{
+		return _context
+		    .Medecin
+		    .Include(m => m.Ville)
+		    .Where(m => m.Nom.ToLower().Contains(keyword.ToLower()));
+		}
+
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
+		public void Remove(int id)
 		{
 			var entity = _context.Medecin.First(t => t.Id == id);
 			_context.Medecin.Remove(entity);
@@ -139,6 +142,41 @@ namespace APIGSB.Models.Repository
 		public Medecin GetByName(string nom, string prenom)
 		{
 			return _context.Medecin.FirstOrDefault(m => m.Nom == nom && m.Prenom == prenom);
+		}
+
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		public void SetMatriculeToNull(ICollection<Medecin> medecins) {
+			List<Medecin> lMedecins = medecins.ToList();
+			for (int i = 0; i < lMedecins.Count(); i++)
+			{
+				Medecin cMedecin = _context.Medecin.AsNoTracking().Single(m => m.Id == lMedecins[i].Id);
+				cMedecin.Visiteur = null;
+				_context.Entry(cMedecin).Property("VisiteurId").CurrentValue = null;
+				lMedecins[i] = cMedecin;
+			}
+
+			_context.Medecin.UpdateRange(lMedecins);
+			_context.SaveChanges();
+		}
+
+		/// <summary>
+		/// Voir <see cref="IMedecinRepository"/>
+		/// </summary>
+		public void SetMatricule(ICollection<Medecin> medecins, int idVisiteur) {
+			Visiteur cVisiteur = _context.Visiteur.AsNoTracking().Single(v => v.Id ==  idVisiteur);
+
+			List<Medecin> lMedecins = medecins.ToList();
+			for (int i = 0; i < lMedecins.Count(); i++)
+			{
+				Medecin cMedecin = _context.Medecin.AsNoTracking().Single(m => m.Id == lMedecins[i].Id);
+				cMedecin.Visiteur = cVisiteur;
+				lMedecins[i] = cMedecin;
+			}
+
+			_context.Medecin.UpdateRange(lMedecins);
+			_context.SaveChanges();
 		}
 	}
 }

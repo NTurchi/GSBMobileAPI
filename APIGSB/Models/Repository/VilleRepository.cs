@@ -34,21 +34,21 @@ namespace APIGSB
 			return _context.Ville.ToList();
 		}
 
-        /// <summary>
-        /// Voir <see cref="IVilleRepository"/>
-        /// </summary>
-        /// <param name="matricule">Voir <see cref="IVilleRepository"/></param>
-        /// <returns></returns>
-	    public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
-	    {
-	        return from medecin in _context.Medecin.Where(m => m.Visiteur.Matricule == matricule)
-                   select medecin.Ville;
-	    }
+	        /// <summary>
+	        /// Voir <see cref="IVilleRepository"/>
+	        /// </summary>
+	        /// <param name="matricule">Voir <see cref="IVilleRepository"/></param>
+	        /// <returns></returns>
+		public IEnumerable<Ville> MedecinsVillesUsingMatricule(string matricule)
+		{
+		return from medecin in _context.Medecin.Where(m => m.Visiteur.Matricule == matricule)
+		   select medecin.Ville;
+		}
 
-	    public IEnumerable<Ville> VillesUsingDepartement(int departementid)
-	    {
-	        return _context.Ville.Where(v => v.DepartementId == departementid);
-	    }
+		public IEnumerable<Ville> VillesUsingDepartement(int departementid)
+		{
+		return _context.Ville.Where(v => v.DepartementId == departementid);
+		}
 
     }
 }

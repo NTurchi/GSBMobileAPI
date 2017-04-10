@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIGSB
 {
-
 	/// <summary>
 	/// Repository de l'entité <see cref="Medicament"/> implémentant l'interface
 	/// <see cref="IMedicamentRepository"/>

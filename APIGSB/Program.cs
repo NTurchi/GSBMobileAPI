@@ -12,10 +12,9 @@ namespace APIGSB
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .UseIISIntegration()
-                .UseUrls("http://*:80")
+                .UseUrls("http://*:8200")
                 .Build();
-
-			host.Run();           
+	host.Run();           
         }
     }
 }

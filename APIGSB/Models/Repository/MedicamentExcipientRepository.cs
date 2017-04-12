@@ -79,12 +79,38 @@ namespace APIGSB.Models.Repository
 				{
 					MedicamentId = idMedicament,
 					Medicament = medicament,
-					Excipient = excipient,
+					Excipient = _context.Excipient.Find(excipient.Id),
 					ExcipientId = excipient.Id
 				});
 			}
 				
 			_context.MedicamentExcipient.RemoveRange(medicamentExcipients);
+			_context.SaveChanges();
+		}
+
+		/// <summary>
+		/// Voir <see cref="IMedicamentExcipientRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IMedicamentExcipientRepository"/></returns>
+		public void AddRangeExicipient(int idMedicament, List<Excipient> excipients)
+		{
+			Medicament medicament = _context.Medicament.Find(idMedicament);
+
+			List<MedicamentExcipient> medicamentExcipients = new List<MedicamentExcipient>();
+
+			foreach (Excipient excipient in excipients)
+			{
+				medicamentExcipients.Add(new MedicamentExcipient()
+				{
+					MedicamentId = idMedicament,
+					Medicament = medicament,
+					Excipient = _context.Excipient.Find(excipient.Id),
+					ExcipientId = excipient.Id
+				});
+			}
+
+			_context.MedicamentExcipient.AddRange(medicamentExcipients);
+			_context.SaveChanges();
 		}
 	}
 }

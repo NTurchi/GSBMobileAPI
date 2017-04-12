@@ -32,5 +32,12 @@ namespace APIGSB.Models.IRepository
 		/// <param name="idMedicament">Identifiant primaire du médicament</param>
 		/// <param name="pathologies">La collection de pathologie à supprimer du médicament</param>
 		void RemoveRangePathologie(int idMedicament, List<Pathologie> pathologies);
+
+		/// <summary>
+		/// Ajoute une liste de <see cref="Pathologie"/> à un <see cref="Medicament"/>
+		/// </summary>
+		/// <param name="idMedicament">Identifiant primaire du médicament</param>
+		/// <param name="pathologies">La collection de pathologie à ajouter au médicament</param>
+		void AddRangePathologie(int idMedicament, List<Pathologie> pathologies);
 	}
 }

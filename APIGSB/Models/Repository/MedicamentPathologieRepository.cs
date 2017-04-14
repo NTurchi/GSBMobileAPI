@@ -72,12 +72,38 @@ namespace APIGSB.Models.Repository
 				{
 					MedicamentId = idMedicament,
 					Medicament = medicament,
-					Pathologie = pathologie,
+					Pathologie = _context.Pathologie.Find(pathologie.Id),
 					PathologieId = pathologie.Id
 				});
 			}
 
 			_context.MedicamentPathologie.RemoveRange(medicamentPathologies);
+			_context.SaveChanges();
+		}
+
+		/// <summary>
+		/// Voir <see cref="IMedicamentPathologieRepository"/>
+		/// </summary>
+		/// <returns>Voir <see cref="IMedicamentPathologieRepository"/></returns>
+		public void AddRangePathologie(int idMedicament, List<Pathologie> pathologies)
+		{
+			Medicament medicament = _context.Medicament.Find(idMedicament);
+
+			List<MedicamentPathologie> medicamentPathologies = new List<MedicamentPathologie>();
+
+			foreach (Pathologie pathologie in pathologies)
+			{
+				medicamentPathologies.Add(new MedicamentPathologie()
+				{
+					MedicamentId = idMedicament,
+					Medicament = medicament,
+					Pathologie = _context.Pathologie.Find(pathologie.Id),
+					PathologieId = pathologie.Id
+				});
+			}
+
+			_context.MedicamentPathologie.AddRange(medicamentPathologies);
+			_context.SaveChanges();
 		}
 	}
 }

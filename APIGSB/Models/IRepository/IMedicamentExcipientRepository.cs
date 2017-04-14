@@ -32,5 +32,12 @@ namespace APIGSB.Models.IRepository
 		/// <param name="idMedicament">Identifiant primaire du médicament</param>
 		/// <param name="excipients">La collection d'excipient à supprimer du médicament</param>
 		void RemoveRangeExcipient(int idMedicament, List<Excipient> excipients);
+
+		/// <summary>
+		/// Ajoute une liste d'<see cref="Excipient"/> à un <see cref="Medicament"/>
+		/// </summary>
+		/// <param name="idMedicament">Identifiant primaire du médicament</param>
+		/// <param name="excipients">La collection d'excipient à ajouter au médicament</param>
+		void AddRangeExicipient(int idMedicament, List<Excipient> excipients);
 	}
 }

@@ -14,7 +14,7 @@ namespace APIGSB
                 .UseIISIntegration()
                 .UseUrls("http://*:80")
                 .Build();
-	host.Run();           
+	        host.Run();           
         }
     }
 }

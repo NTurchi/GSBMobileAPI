@@ -44,23 +44,23 @@ namespace APIGSB.Controllers
 			return _medecinRepository.GetAll();
 		}
 
-	        /// <summary>
+	    /// <summary>
 		/// Renvoie des <see cref="Medecin"/> reliés au visiteur
 		/// </summary>
 		/// <returns>La médecin recherché</returns>
 		/// <param name="matricule">Le matricule du visiteur référent</param>
 		[HttpGet("matricule/{matricule}", Name = "GetMedecinsUsingMatricule")]
-	        public IEnumerable<Medecin> GetUsingMatricule(string matricule)
-	        {
-	            return _medecinRepository.FindUsingMatricule(matricule);
-	        }
+	    public IEnumerable<Medecin> GetUsingMatricule(string matricule)
+	    {
+	        return _medecinRepository.FindUsingMatricule(matricule);
+	    }
 
-	        /// <summary>
-	        /// Renvoie un <see cref="Medecin"/> bien précis à partir de son Id
-	        /// </summary>
-	        /// <returns>La médecin recherché</returns>
-	        /// <param name="id">L'identifiant primaire du médecin à trouver</param>
-	        [HttpGet("{id}", Name = "GetMedecin")]
+	    /// <summary>
+	    /// Renvoie un <see cref="Medecin"/> bien précis à partir de son Id
+	    /// </summary>
+	    /// <returns>La médecin recherché</returns>
+	    /// <param name="id">L'identifiant primaire du médecin à trouver</param>
+	    [HttpGet("{id}", Name = "GetMedecin")]
 		public IActionResult GetById(int id)
 		{
 			var item = _medecinRepository.Find(id);
@@ -167,21 +167,21 @@ namespace APIGSB.Controllers
 		/// </summary>
 		/// <returns>Les médecins de la base de données correspondants à ces critères</returns>
 		[HttpGet("{villeid}/{matricule}")]
-	        public IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule)
-	        {
-	            return _medecinRepository.GetAllUsingVilleAndMatricule(villeid, matricule);
-	        }
+	    public IEnumerable<Medecin> GetAllUsingVilleAndMatricule(int villeid, string matricule)
+	    {
+	        return _medecinRepository.GetAllUsingVilleAndMatricule(villeid, matricule);
+	    }
 
-	        /// <summary>
+	    /// <summary>
 		/// Envoie des <see cref="Medecin"/> de la base de données ayant le mot clé en partie dans leur nom de famille
 		/// <param name="keyword">Mot clé de la recherche</param>
 		/// </summary>
 		/// <returns>Les médecins de la base de données correspondants à ces critères</returns>
 		[HttpGet("keyword/{keyword}")]
-	        public IEnumerable<Medecin> FindByNameUsingKeyword(string keyword)
-	        {
-	            return _medecinRepository.FindByNameUsingKeyword(keyword);
-	        }
+	    public IEnumerable<Medecin> FindByNameUsingKeyword(string keyword)
+	    {
+	        return _medecinRepository.FindByNameUsingKeyword(keyword);
+	    }
 
 	        /// <summary>
 		/// Envoie des <see cref="Medecin"/> de la base de données situés dans cette ville
@@ -189,10 +189,10 @@ namespace APIGSB.Controllers
 		/// </summary>
 		/// <returns>Les médecins de la base de données correspondants à ce critère</returns>
 		[HttpGet("ville/{villeid}")]
-	        public IEnumerable<Medecin> GetAllUsingVille(int villeid)
-	        {
-	            return _medecinRepository.GetAllUsingVille(villeid);
-	        }
+	    public IEnumerable<Medecin> GetAllUsingVille(int villeid)
+	    {
+	        return _medecinRepository.GetAllUsingVille(villeid);
+	    }
 
 		/// <summary>
 		/// Déssasigne une liste de médecins a un visiteur
@@ -218,5 +218,15 @@ namespace APIGSB.Controllers
 			_medecinRepository.SetMatricule(medecins, id);
 			return new NoContentResult();
 		}
+
+        /// <summary>
+        /// Retourne le premier médecin trouvé en base de données
+        /// </summary>
+        /// <returns>Le médecin</returns>
+        [HttpGet("first")]
+	    public Medecin FindFirst()
+	    {
+	        return _medecinRepository.FindFirst();
+	    }
     }
 }

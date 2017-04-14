@@ -82,7 +82,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public void Add(Medecin medecin)
 		{
-			medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
+		    medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
 			_context.Medecin.Add(medecin);
 			_context.SaveChanges();
 		}
@@ -100,6 +100,14 @@ namespace APIGSB.Models.Repository
 		.FirstOrDefault(t => t.Id == id);
 		}
 
+        /// <summary>
+        /// Voir <see cref="IMedecinRepository"/>
+        /// </summary>
+        /// <returns>Voir <see cref="IMedecinRepository"/></returns>
+	    public Medecin FindFirst()
+	    {
+	        return _context.Medecin.FirstOrDefault();
+	    }
 		/// <summary>
 		/// voir <see cref="IMedecinRepository"/>
 		/// </summary>

@@ -110,6 +110,8 @@ namespace APIGSB.Models.Repository
 		return _context
 		    .Medecin
 		    .Include(m => m.Ville)
+            .Include(m=>m.Visiteur)
+            .AsNoTracking()
 		    .Where(m => m.Nom.ToLower().Contains(keyword.ToLower()));
 		}
 

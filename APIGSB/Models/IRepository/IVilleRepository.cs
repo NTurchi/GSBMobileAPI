@@ -26,5 +26,13 @@ namespace APIGSB.Models.IRepository
         /// <param name="departementid">Id du département pour lequel on recherche les villes</param>
         /// <returns></returns>
         IEnumerable<Ville> VillesUsingDepartement(int departementid);
+
+	    /// <summary>
+	    /// Obtient la ville si celle-ci existe dans la base de données
+	    /// </summary>
+	    /// <param name="name">Nom de la ville recherchée</param>
+	    /// <returns></returns>
+	    Ville FindVilleByName(string name);
+
 	}
 }

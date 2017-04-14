@@ -18,13 +18,20 @@ namespace APIGSB.Controllers
 		/// <value>L'interface du repository des medecins</value>
 		private IMedecinRepository _medecinRepository;
 
-		/// <summary>
-		/// Initialise une nouvelle instance de <see cref="MedecinController"/>
+        /// <summary>
+		/// Interface du repertoire de requêtes des <see cref="Medecin"/>
 		/// </summary>
-		/// <param name="medecins">Le repository attaché à l'entité <see cref="Medecin"/></param>
-		public MedecinController(IMedecinRepository medecins)
+		/// <value>L'interface du repository des medecins</value>
+		private IVilleRepository _villeRepository;
+
+        /// <summary>
+        /// Initialise une nouvelle instance de <see cref="MedecinController"/>
+        /// </summary>
+        /// <param name="medecins">Le repository attaché à l'entité <see cref="Medecin"/></param>
+        public MedecinController(IMedecinRepository medecins, IVilleRepository villes)
 		{
 			_medecinRepository = medecins;
+		    _villeRepository = villes;
 		}
 
 		/// <summary>
@@ -76,6 +83,8 @@ namespace APIGSB.Controllers
 			{
 				return BadRequest();
 			}
+		    Ville currentVille = _villeRepository.FindVilleByName(dtoMedecin.Ville.Nom);
+		    
 			Medecin medecin = new Medecin()
 			{
 				Nom = dtoMedecin.Nom,
@@ -88,10 +97,13 @@ namespace APIGSB.Controllers
 				ImgUrl = dtoMedecin.ImgUrl,
 				Latitude = dtoMedecin.Latitude,
 				Longitude = dtoMedecin.Longitude,
-				Ville = dtoMedecin.Ville
-			};
-
-			_medecinRepository.Add(medecin);
+                Ville = dtoMedecin.Ville
+            };
+            if (currentVille != null)
+            {
+                medecin.Ville = currentVille;
+            }
+            _medecinRepository.Add(medecin);
 			return new CreatedAtRouteResult("GetMedecin", _medecinRepository.GetByName(medecin.Nom, medecin.Prenom));
 		}
 

@@ -61,7 +61,7 @@ namespace APIGSB.Controllers
 	    /// <returns>La médecin recherché</returns>
 	    /// <param name="id">L'identifiant primaire du médecin à trouver</param>
 	    [HttpGet("{id}", Name = "GetMedecin")]
-		public IActionResult GetById(int id)
+		public IActionResult Find(int id)
 		{
 			var item = _medecinRepository.Find(id);
 			if (item == null)
@@ -213,7 +213,7 @@ namespace APIGSB.Controllers
 		/// <param name="medecins">Les médecins de la requête à assigner</param>
 		/// <param name="id">L'id du visiteur</param>
 		[HttpPost("setvisiteur/{id}")]
-		public IActionResult UnsetMedecinVisiteur(int id, [FromBody] ICollection<Medecin> medecins)
+		public IActionResult SetMedecinVisiteur(int id, [FromBody] ICollection<Medecin> medecins)
 		{
 			_medecinRepository.SetMatricule(medecins, id);
 			return new NoContentResult();

@@ -41,9 +41,9 @@ namespace APIGSB
 
 
             services.AddDbContext<ApigsbDbContext>(options => options.UseSqlServer(connection));
-
-			// Ajout d'un paramètre JSON pour eviter la redondance infinit des entités liées entre elles
-			services.AddMvc().AddJsonOptions(options =>
+            services.AddTransient<DatabaseSeedData>();
+            // Ajout d'un paramètre JSON pour eviter la redondance infinit des entités liées entre elles
+            services.AddMvc().AddJsonOptions(options =>
 			{
 				options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 				options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -65,12 +65,14 @@ namespace APIGSB
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, DatabaseSeedData seeder)
 		{
 			loggerFactory.AddConsole(Configuration.GetSection("Logging"));
 			loggerFactory.AddDebug();
 			app.UseCors("MyPolicy");
 			app.UseMvc();
-		}
+
+            seeder.SeedData().Wait();
+        }
 	}
 }

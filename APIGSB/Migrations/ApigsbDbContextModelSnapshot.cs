@@ -21,9 +21,13 @@ namespace APIGSB.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Libelle");
+                    b.Property<string>("Libelle")
+                        .HasMaxLength(450);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Libelle")
+                        .IsUnique();
 
                     b.ToTable("Excipient");
                 });
@@ -145,9 +149,13 @@ namespace APIGSB.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Libelle");
+                    b.Property<string>("Libelle")
+                        .HasMaxLength(450);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Libelle")
+                        .IsUnique();
 
                     b.ToTable("Pathologie");
                 });

@@ -8,8 +8,8 @@ using APIGSB.Models;
 namespace APIGSB.Migrations
 {
     [DbContext(typeof(ApigsbDbContext))]
-    [Migration("20170410195619_1.0-Migration")]
-    partial class _10Migration
+    [Migration("20170417144813_v1.0")]
+    partial class v10
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,9 +22,13 @@ namespace APIGSB.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Libelle");
+                    b.Property<string>("Libelle")
+                        .HasMaxLength(450);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Libelle")
+                        .IsUnique();
 
                     b.ToTable("Excipient");
                 });
@@ -146,9 +150,13 @@ namespace APIGSB.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Libelle");
+                    b.Property<string>("Libelle")
+                        .HasMaxLength(450);
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Libelle")
+                        .IsUnique();
 
                     b.ToTable("Pathologie");
                 });

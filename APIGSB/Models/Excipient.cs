@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace APIGSB.Models
 {
@@ -13,11 +14,12 @@ namespace APIGSB.Models
 		/// <value>L'identifiant</value>
 		public int Id { get; set; }
 
-		/// <summary>
-		/// Nom de l'excipient
-		/// </summary>
-		/// <value>Le nom</value>
-		public string Libelle { get; set; }
+        /// <summary>
+        /// Nom de l'excipient
+        /// </summary>
+        /// <value>Le nom</value>
+        [StringLength(450)]
+        public string Libelle { get; set; }
 
 		/// <summary>
 		/// Liste des <see cref="Medicament"/> ayant cet excipient

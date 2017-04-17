@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace APIGSB.Migrations
 {
-    public partial class _10Migration : Migration
+    public partial class v10 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace APIGSB.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Libelle = table.Column<string>(nullable: true)
+                    Libelle = table.Column<string>(maxLength: 450, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -41,7 +41,7 @@ namespace APIGSB.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Libelle = table.Column<string>(nullable: true)
+                    Libelle = table.Column<string>(maxLength: 450, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -193,6 +193,12 @@ namespace APIGSB.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Excipient_Libelle",
+                table: "Excipient",
+                column: "Libelle",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Medecin_VilleId",
                 table: "Medecin",
                 column: "VilleId");
@@ -216,6 +222,12 @@ namespace APIGSB.Migrations
                 name: "IX_MedicamentPathologie_PathologieId",
                 table: "MedicamentPathologie",
                 column: "PathologieId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pathologie_Libelle",
+                table: "Pathologie",
+                column: "Libelle",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

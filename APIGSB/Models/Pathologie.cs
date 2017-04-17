@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace APIGSB.Models
 {
@@ -17,6 +18,7 @@ namespace APIGSB.Models
 		/// Nom de la pathologie
 		/// </summary>
 		/// <value>Le nom</value>
+		[StringLength(450)]
 		public string Libelle { get; set; }
 
 		/// <summary>

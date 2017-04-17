@@ -94,10 +94,18 @@ namespace APIGSB.Models
 		/// <param name="modelBuilder">Model de construction des relations</param>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			#region Medicament Pathologie Clefs Etrangères (Many To Many)
+		    modelBuilder.Entity<Excipient>()
+		        .HasIndex(e => e.Libelle)
+		        .IsUnique();
 
-			// Définition de la clef primaire composé de l'entité
-			modelBuilder.Entity<MedicamentPathologie>()
+		    modelBuilder.Entity<Pathologie>()
+                .HasIndex(e => e.Libelle)
+                .IsUnique();
+
+            #region Medicament Pathologie Clefs Etrangères (Many To Many)
+
+            // Définition de la clef primaire composé de l'entité
+            modelBuilder.Entity<MedicamentPathologie>()
 						.HasKey(mc => new { mc.MedicamentId, mc.PathologieId });
 
 			// Mise en place de la relation de clef étrangère avec l'entité Médicament

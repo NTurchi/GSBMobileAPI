@@ -38,6 +38,7 @@ namespace APIGSB.Models.Repository
 					       .ThenInclude(mp => mp.Pathologie)
 				       .Include(m => m.MedicamentExcipients)
 					       .ThenInclude(me => me.Excipient)
+                        .OrderBy(m=>m.Nom)
 				       .ToList();
 		}
 

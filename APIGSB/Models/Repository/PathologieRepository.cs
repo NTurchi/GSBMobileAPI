@@ -32,7 +32,7 @@ namespace APIGSB
 		/// <returns>Voir <see cref="IPathologieRepository"/></returns>
 		public IEnumerable<Pathologie> GetAll()
 		{
-			return _context.Pathologie.ToList();
+			return _context.Pathologie.OrderBy(p=>p.Libelle).ToList();
 		}
 	}
 }

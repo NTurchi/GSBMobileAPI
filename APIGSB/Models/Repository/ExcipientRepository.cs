@@ -31,7 +31,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IExcipientRepository"/></returns>
 		public IEnumerable<Excipient> GetAll()
 		{
-			return _context.Excipient.ToList();
+			return _context.Excipient.OrderBy(e=>e.Libelle).ToList();
 		}
 	}
 }

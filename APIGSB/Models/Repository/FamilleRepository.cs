@@ -32,7 +32,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IFamilleRepository"/></returns>
         public IEnumerable<Famille> GetAll()
         {
-			var a = _context.Famille.Include(f=>f.Medicaments).AsNoTracking().ToList();
+			var a = _context.Famille.Include(f=>f.Medicaments).AsNoTracking().OrderBy(f=>f.Nom).ToList();
             return a;
         }
 

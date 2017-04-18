@@ -32,7 +32,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public IEnumerable<Medecin> GetAll()
 		{
-			return _context.Medecin.ToList();
+			return _context.Medecin.OrderBy(m=>m.Nom).ThenBy(m=>m.Prenom).ToList();
 		}
 
 	        /// <summary>

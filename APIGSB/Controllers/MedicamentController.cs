@@ -233,5 +233,10 @@ namespace APIGSB.Controllers
 			return new NoContentResult();
 		}
 
+        [HttpGet("pathologie/{idpatho}")]
+	    public IEnumerable<Medicament> GetMedecinUsingPathologie(int idpatho)
+	    {
+	        return _medicamentRepository.GetByPathologieId(idpatho);
+	    }
 	}
 }

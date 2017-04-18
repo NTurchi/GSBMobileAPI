@@ -136,5 +136,16 @@ namespace APIGSB.Models.Repository
 		{
 			return _context.Medicament.FirstOrDefault(m => m.Nom == nom);
 		}
-	}
+
+	    /// <summary>
+	    /// Voir <see cref="IMedicamentRepository"/>
+	    /// </summary>
+	    /// <param name="id">Voir <see cref="IMedicamentRepository"/>></param>
+	    /// <returns>Voir <see cref="IMedicamentRepository"/></returns>
+	    public IEnumerable<Medicament> GetByPathologieId(int id)
+	    {
+	        return _context.MedicamentPathologie.Where(m => m.Pathologie.Id == id).Select(mp=>mp.Medicament);     
+	    }
+
+    }
 }

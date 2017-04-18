@@ -51,5 +51,12 @@ namespace APIGSB.Models.IRepository
 		/// <returns>Le Medicament correspondant</returns>
 		/// <param name="nom">Le nom du médicament à trouver</param>
 		Medicament GetByName(string nom);
-	}
+
+        /// <summary>
+        /// Retourne une liste de <see cref="Medicament"/> relatifs à une pathologie
+        /// </summary>
+        /// <param name="id">Identifiant de la pathologie</param>
+        /// <returns>La liste de médicaments</returns>
+        IEnumerable<Medicament> GetByPathologieId(int id);
+    }
 }

@@ -144,7 +144,20 @@ namespace APIGSB.Models.Repository
 	    /// <returns>Voir <see cref="IMedicamentRepository"/></returns>
 	    public IEnumerable<Medicament> GetByPathologieId(int id)
 	    {
-	        return _context.MedicamentPathologie.Where(m => m.Pathologie.Id == id).Select(mp=>mp.Medicament);     
+	        var mp = _context.MedicamentPathologie.Where(m => m.Pathologie.Id == id);
+
+            return mp
+                .Select(m => new Medicament
+                {
+                    Nom = m.Medicament.Nom,
+                    Id = m.Medicament.Id,
+                    Famille = new Famille()
+                    {
+                        Nom = m.Medicament.Famille.Nom
+                    }
+                })
+                .ToList();
+            
 	    }
 
     }

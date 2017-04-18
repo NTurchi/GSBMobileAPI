@@ -5,12 +5,12 @@
 	/// </summary>
 	public class Medecin
 	{
-	        #region property
-	        /// <summary>
-	        /// Identifiant primaire de l'objet Médecin
-	        /// </summary>
-	        /// <value>L'identifiant</value>
-	        public int Id { get; set; }
+	    #region property
+	    /// <summary>
+	    /// Identifiant primaire de l'objet Médecin
+	    /// </summary>
+	    /// <value>L'identifiant</value>
+	    public int Id { get; set; }
 
 		/// <summary>
 		/// Nom du Médecin

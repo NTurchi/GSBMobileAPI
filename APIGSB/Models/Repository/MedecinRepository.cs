@@ -72,9 +72,8 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir Interface</returns>
 		public IEnumerable<Medecin> GetAllUsingVille(int villeid)
 		{
-		var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
-		return _context.Medecin
-		.Where(m => m.Ville == ville);
+            var ville = _context.Ville.FirstOrDefault(v => v.Id == villeid);
+            return _context.Medecin.Where(m => m.Ville == ville);
 		}
 		/// <summary>
 		/// Voir <see cref="IMedecinRepository"/>
@@ -82,7 +81,7 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedecinRepository"/></returns>
 		public void Add(Medecin medecin)
 		{
-		    medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
+		    //medecin.Ville = _context.Ville.Single(v => v.Id == medecin.Ville.Id);
 			_context.Medecin.Add(medecin);
 			_context.SaveChanges();
 		}
@@ -94,10 +93,10 @@ namespace APIGSB.Models.Repository
 		public Medecin Find(int id)
 		{
 			return _context
-		.Medecin
-		.Include(m=>m.Ville)
+                .Medecin
+                .Include(m=>m.Ville)
 				.Include(v=>v.Visiteur)
-		.FirstOrDefault(t => t.Id == id);
+                .FirstOrDefault(t => t.Id == id);
 		}
 
         /// <summary>

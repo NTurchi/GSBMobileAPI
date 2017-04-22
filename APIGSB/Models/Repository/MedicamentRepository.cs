@@ -32,29 +32,57 @@ namespace APIGSB.Models.Repository
 		/// <returns>Voir <see cref="IMedicamentRepository"/></returns>
 		public IEnumerable<Medicament> GetAll()
 		{
-            return _context.Medicament
-                .Select(m => new Medicament
-                {
-                    Nom = m.Nom,
-                    Id = m.Id,
-                    Famille = new Famille()
-                    {
-                      Nom  = m.Famille.Nom
-                    },
-                    MedicamentPathologies = new List<MedicamentPathologie>(m.MedicamentPathologies),
-                    ImgUrl = m.ImgUrl,
-                    MedicamentExcipients = new List<MedicamentExcipient>(m.MedicamentExcipients),
-                    Administration = m.Administration,
-                    Commande = m.Commande,
-                    Indications = m.Indications,
-                    Principe = m.Principe,
-                    Prix = m.Prix,
-                    Quantite = m.Quantite,
-                    Status = m.Status,
-                    Stock = m.Stock,
-                    TauxRemboursement= m.TauxRemboursement
-                })
-                .ToList();
+            //var list = _context.Medicament
+            //    .Select(m => new Medicament
+            //    {
+            //        Nom = m.Nom,
+            //        Id = m.Id,
+            //        Famille = new Famille()
+            //        {
+            //          Nom  = m.Famille.Nom
+            //        },
+            //        MedicamentPathologies = new List<MedicamentPathologie>(m.MedicamentPathologies.ogie)),
+            //        ImgUrl = m.ImgUrl,
+            //        MedicamentExcipients = new List<MedicamentExcipient>(),
+            //        Administration = m.Administration,
+            //        Commande = m.Commande,
+            //        Indications = m.Indications,
+            //        Principe = m.Principe,
+            //        Prix = m.Prix,
+            //        Quantite = m.Quantite,
+            //        Status = m.Status,
+            //        Stock = m.Stock,
+            //        TauxRemboursement= m.TauxRemboursement
+            //    })
+            //    .ToList();
+            
+            var list = _context.Medicament
+                               .Include(m => m.Famille).AsNoTracking()
+                       .Include(m => m.MedicamentPathologies)
+                           .ThenInclude(mp => mp.Pathologie)
+                       .Include(m => m.MedicamentExcipients)
+                           .ThenInclude(me => me.Excipient)
+                        .OrderBy(m => m.Nom)
+                       .ToList();
+            foreach (Medicament medicament in list)
+		    {
+		        foreach (var medicamentMedicamentPathology in medicament.MedicamentPathologies)
+		        {
+		            medicamentMedicamentPathology.Medicament = null;
+		        }
+		    }
+            foreach (Medicament medicament in list)
+		    {
+		        foreach (var medicamentMedicamentExcipient in medicament.MedicamentExcipients)
+		        {
+                    medicamentMedicamentExcipient.Medicament = null;
+		        }
+		    }
+		    foreach (var medicament in list)
+		    {
+		        medicament.Famille.Medicaments = null;
+		    }
+		    return list;
 		}
 
 		/// <summary>

@@ -8,8 +8,8 @@ using APIGSB.Models;
 namespace APIGSB.Migrations
 {
     [DbContext(typeof(ApigsbDbContext))]
-    [Migration("20170417144813_v1.0")]
-    partial class v10
+    [Migration("20170425134759_v1")]
+    partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

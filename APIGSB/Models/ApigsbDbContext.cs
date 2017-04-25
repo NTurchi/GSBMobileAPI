@@ -83,9 +83,9 @@ namespace APIGSB.Models
 
             //optionsBuilder.UseSqlServer(@"Server=tcp:gsbdatabaseserver.database.windows.net,1433;Initial Catalog=GSBMOBILEAPIDB;Persist Security Info=False;User ID=rnrsolutions;//Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
-			optionsBuilder.UseSqlServer(@"Server=tcp:gsbmobile.database.windows.net,1433;Initial Catalog=gsbmobile;Persist Security Info=False;User ID=rnrsolutions;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            //optionsBuilder.UseSqlServer(@"Server=tcp:gsbmobile.database.windows.net,1433;Initial Catalog=gsbmobile;Persist Security Info=False;User ID=rnrsolutions;Password=Admin123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
 
-            //optionsBuilder.UseSqlServer(@"Data Source = 192.168.165.15; Initial Catalog = APIGSB; Integrated Security = False; User ID = gsbdblogin; Password = Azerty.123; Connect Timeout = 15; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            optionsBuilder.UseSqlServer(@"Data Source = 192.168.165.15; Initial Catalog = APIGSB; Integrated Security = False; User ID = gsbdblogin; Password = Azerty.123; Connect Timeout = 15; Encrypt = False; TrustServerCertificate = True; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
         }
 
 		/// <summary>
